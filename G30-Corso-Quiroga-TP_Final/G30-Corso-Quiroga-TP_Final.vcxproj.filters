@@ -29,5 +29,11 @@
     <ClInclude Include="eTipoSangre.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="eTamanio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eUbicacion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
