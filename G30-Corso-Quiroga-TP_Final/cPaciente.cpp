@@ -6,9 +6,10 @@ using namespace std;
 
 #include "cPaciente.h"
 
-cPaciente::cPaciente(string nombre, string sexo, int telefono, eTipoSangre tipoSangre, float salud, int cantTumor)
+cPaciente::cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud, int cantTumor)
 {
 	this->nombre = nombre;
+	this->DNI = DNI;
 	this->sexo = sexo;
 	this->telefono = telefono;
 	this->tipoSangre = tipoSangre;

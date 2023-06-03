@@ -21,6 +21,36 @@
     <ClCompile Include="cPaciente.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cTumor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cOncologo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cCentro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cFicha.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cDosimetrista.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cTerapia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cRadioterapiaHaz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cBraquiterapia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cRadioterapiaSistemica.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cListaPaciente.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cPaciente.h">
@@ -33,6 +63,36 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="eUbicacion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cTumor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cOncologo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cCentro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cFicha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cDosimetrista.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cTerapia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cRadioterapiaHaz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cBraquiterapia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cRadioterapiaSistemica.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cListaPaciente.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

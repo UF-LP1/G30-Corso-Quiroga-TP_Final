@@ -127,11 +127,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cBraquiterapia.cpp" />
+    <ClCompile Include="cCentro.cpp" />
+    <ClCompile Include="cDosimetrista.cpp" />
+    <ClCompile Include="cFicha.cpp" />
+    <ClCompile Include="cListaPaciente.cpp" />
+    <ClCompile Include="cOncologo.cpp" />
     <ClCompile Include="cPaciente.cpp" />
+    <ClCompile Include="cRadioterapiaHaz.cpp" />
+    <ClCompile Include="cRadioterapiaSistemica.cpp" />
+    <ClCompile Include="cTerapia.cpp" />
+    <ClCompile Include="cTumor.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cBraquiterapia.h" />
+    <ClInclude Include="cCentro.h" />
+    <ClInclude Include="cDosimetrista.h" />
+    <ClInclude Include="cFicha.h" />
+    <ClInclude Include="cListaPaciente.h" />
+    <ClInclude Include="cOncologo.h" />
     <ClInclude Include="cPaciente.h" />
+    <ClInclude Include="cRadioterapiaHaz.h" />
+    <ClInclude Include="cRadioterapiaSistemica.h" />
+    <ClInclude Include="cTerapia.h" />
+    <ClInclude Include="cTumor.h" />
     <ClInclude Include="eTamanio.h" />
     <ClInclude Include="eTipoSangre.h" />
     <ClInclude Include="eUbicacion.h" />

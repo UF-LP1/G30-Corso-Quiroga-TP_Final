@@ -9,7 +9,7 @@ using namespace std;
 class cPaciente{
 private:
 	string nombre;
-	const int DNI;
+	int DNI;
 	//ctime fechaNac;
 	string sexo;
 	int telefono;
@@ -17,7 +17,7 @@ private:
 	float salud;
 	int cantTumor;
 public:
-	cPaciente(string nombre, string sexo, int telefono, eTipoSangre tipoSangre, float salud, int cantTumor);
+	cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud, int cantTumor);
 	~cPaciente();
 	string getnombre() { return this->nombre; }
 	void setnombre(string nombre);
