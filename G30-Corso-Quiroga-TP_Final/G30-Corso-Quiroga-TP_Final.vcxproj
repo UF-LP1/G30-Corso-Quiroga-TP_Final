@@ -131,6 +131,7 @@
     <ClCompile Include="cCentro.cpp" />
     <ClCompile Include="cDosimetrista.cpp" />
     <ClCompile Include="cFicha.cpp" />
+    <ClCompile Include="cLista.cpp" />
     <ClCompile Include="cListaPaciente.cpp" />
     <ClCompile Include="cOncologo.cpp" />
     <ClCompile Include="cPaciente.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="cCentro.h" />
     <ClInclude Include="cDosimetrista.h" />
     <ClInclude Include="cFicha.h" />
+    <ClInclude Include="cLista.h" />
     <ClInclude Include="cListaPaciente.h" />
     <ClInclude Include="cOncologo.h" />
     <ClInclude Include="cPaciente.h" />

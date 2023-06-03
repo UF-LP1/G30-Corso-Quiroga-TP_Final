@@ -6,7 +6,7 @@ using namespace std;
 
 #include "cPaciente.h"
 
-cPaciente::cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud, int cantTumor)
+cPaciente::cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud)
 {
 	this->nombre = nombre;
 	this->DNI = DNI;
@@ -14,9 +14,13 @@ cPaciente::cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSan
 	this->telefono = telefono;
 	this->tipoSangre = tipoSangre;
 	this->salud = salud;
-	this->cantTumor = cantTumor;
+
+	this->listaTumor = new cLista<cTumor>(10);
+
 
 }
+
+cPaciente::~cPaciente() {}
 
 void cPaciente::setnombre(string nombre)
 {
@@ -48,8 +52,15 @@ void cPaciente::setsalud(float salud)
 	return;
 }
 
-void cPaciente::setcanttumor(int cantTumor)
-{
-	this->cantTumor = cantTumor;
-	return;
+int cPaciente::getcantTumor() {
+	
+	return this->listaTumor->getCA();
 }
+
+void cPaciente::agregarTumor(cTumor* tumor) {
+	this->listaTumor->Insertar(tumor);
+	try { this->listaTumor->Insertar(tumor); }
+	catch (exception) {} //Completar
+}
+
+//implementar cPaciente (eliminar tumor, ubicar tumor)
