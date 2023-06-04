@@ -34,7 +34,7 @@ public:
 	int getCA() const { return ca; };
 	void operator+(T1* p) { Insertar(p); };
 	void operator-(T1* p) { Eliminar(p); };
-	friend ostream& operator<< <>(ostream& out, cLista<T1>& Lista);
+//	friend ostream& operator<< <>(ostream& out, cLista<T1>& Lista);
 
 
 	T1* operator[](unsigned int pos)
