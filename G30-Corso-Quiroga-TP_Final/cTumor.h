@@ -22,8 +22,8 @@ public:
 	void settamanio(eTamanio tamanio);
 	eUbicacion getubicacion() { return this->ubicacion; }
 	void setubicacion(eUbicacion ubicacion);
-	int getacumRadiacion() { return this->acumRadiacion; }
-	void setacumRadiacion(int acumRadiacion);
+	int getacumradiacion() { return this->acumRadiacion; }
+	void setacumradiacion(int acumRadiacion);
 
 };
 

@@ -24,7 +24,7 @@ void cTumor::setubicacion(eUbicacion ubicacion)
 	return;
 }
 
-void cTumor::setacumRadiacion(int acumRadiacion)
+void cTumor::setacumradiacion(int acumRadiacion)
 {
 	this->acumRadiacion = acumRadiacion;
 	return;

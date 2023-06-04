@@ -63,4 +63,9 @@ void cPaciente::agregarTumor(cTumor* tumor) {
 	catch (exception) {} //Completar
 }
 
+void cPaciente::eliminarTumor(cTumor* tumor)
+{
+	//this->listaTumor->Eliminar(tumor);
+}
+
 //implementar cPaciente (eliminar tumor, ubicar tumor)

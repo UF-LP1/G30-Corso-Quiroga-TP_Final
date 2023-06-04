@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <ctime>
 #include "eTipoSangre.h"
 #include "cLista.h"
 #include "cTumor.h"
@@ -35,6 +34,7 @@ public:
 
 	int getcantTumor();
 	void agregarTumor(cTumor* tumor);
+	void eliminarTumor(cTumor* tumor);
 };
 
 //implementar la clase tumor
