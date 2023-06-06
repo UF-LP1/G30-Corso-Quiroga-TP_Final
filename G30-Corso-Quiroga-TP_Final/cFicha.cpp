@@ -1,6 +1,6 @@
 #include "cFicha.h"
 
-cFicha::cFicha(int acumRadiacion) {
+cFicha::cFicha(int acumRadiacion, cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo) {
 	this->acumRadiacion = acumRadiacion;
 
 }

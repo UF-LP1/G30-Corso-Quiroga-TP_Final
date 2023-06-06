@@ -52,6 +52,12 @@ void cPaciente::setsalud(float salud)
 	return;
 }
 
+void cPaciente::setficha(cFicha* ficha)
+{
+	this->ficha = ficha;
+	return;
+}
+
 int cPaciente::getcantTumor() {
 	
 	return this->listaTumor->getCA();
@@ -64,8 +70,15 @@ void cPaciente::agregarTumor(cTumor* tumor) {
 }
 
 void cPaciente::eliminarTumor(cTumor* tumor)
-{
-	//this->listaTumor->Eliminar(tumor);
+{/*
+	int i;
+	for (i = 0; i < this->listaTumor->getCA(); i++) {
+		cTumor* tumor = this->listaTumor->Buscar(i);  
+		if (this->listaTumor->Buscar(i)==) {
+			this->listaTumor->Eliminar(i);
+		}
+	}
+	*/
 }
 
 //implementar cPaciente (eliminar tumor, ubicar tumor)

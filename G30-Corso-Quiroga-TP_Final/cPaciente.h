@@ -4,8 +4,11 @@
 #include "eTipoSangre.h"
 #include "cLista.h"
 #include "cTumor.h"
+#include "cFicha.h"
 
 using namespace std;
+class cFicha;
+class cTumor;
 
 class cPaciente{
 private:
@@ -17,6 +20,7 @@ private:
 	eTipoSangre tipoSangre;
 	float salud;
 	cLista <cTumor>* listaTumor;
+	cFicha* ficha;
 public:
 	cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud);
 	~cPaciente();
@@ -31,6 +35,8 @@ public:
 	float getsalud() { return this->salud; }
 	void setsalud(float salud);
 
+	cFicha* getficha() { return this->ficha; } //hacer set
+	void setficha(cFicha* ficha);
 
 	int getcantTumor();
 	void agregarTumor(cTumor* tumor);

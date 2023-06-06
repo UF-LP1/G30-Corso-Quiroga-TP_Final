@@ -6,5 +6,12 @@ using namespace std;
 
 class cTerapia
 {
+
+
+public:
+	cTerapia();
+	~cTerapia();
+	virtual int getTipoTerapia() = 0;
+
 };
 
