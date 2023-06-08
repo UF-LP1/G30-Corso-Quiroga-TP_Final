@@ -23,9 +23,14 @@ public:
 	~cCentro();
 
 	void agregarPaciente(cPaciente* paciente);
+	void eliminarPaciente(cPaciente* paciente);
 
 	void agregarOncologo(cOncologo* oncologo);
+	void eliminarOncologo(cOncologo* oncologo);
 
 	cLista <cPaciente>* buscarPacienteTyC(cTerapia* terapia, eUbicacion ubicacion);
+
+	void listarPacientes();
+	void listarOncologos();
 };
 

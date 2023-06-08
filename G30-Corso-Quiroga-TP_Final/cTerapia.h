@@ -4,10 +4,7 @@
 
 using namespace std;
 
-class cTerapia
-{
-
-
+class cTerapia{
 public:
 	cTerapia();
 	~cTerapia();

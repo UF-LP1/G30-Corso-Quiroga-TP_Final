@@ -26,21 +26,29 @@ public:
 	~cPaciente();
 	string getnombre() { return this->nombre; }
 	void setnombre(string nombre);
+
+	int getDNI() { return this->DNI; }
+	void setDNI(int DNI);
+
 	string getsexo() { return this->sexo; }
 	void setsexo(string sexo);
+
 	int gettelefono() { return this->telefono; }
 	void settelefono(int telefono);
+
 	eTipoSangre gettiposangre() { return this->tipoSangre; }
 	void settiposangre(eTipoSangre tipoSangre);
+
 	float getsalud() { return this->salud; }
 	void setsalud(float salud);
 
-	cFicha* getficha() { return this->ficha; } //hacer set
+	cFicha* getficha() { return this->ficha; }
 	void setficha(cFicha* ficha);
 
 	int getcantTumor();
 	void agregarTumor(cTumor* tumor);
 	void eliminarTumor(cTumor* tumor);
+	cTumor* quitarTumor(cTumor* tumor);
 };
 
 //implementar la clase tumor

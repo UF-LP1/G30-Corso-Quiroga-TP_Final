@@ -19,18 +19,28 @@ private:
 	//cTime fecha;
 	int acumRadiacion;
 	cTerapia* terapia; 
-	cPaciente* paciente; //hacer get y set
-	cOncologo* oncologo; //hacer get y set
+	cPaciente* paciente; 
+	cOncologo* oncologo; 
 	cTumor* tumor;
 
 public:
 	cFicha(int acumRadiacion, cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo);
 	~cFicha();
-	
-	cTerapia* getterapia() { return this->terapia; }
-	cTumor* gettumor() { return this->tumor; }
-	
+
 	int getacumRadiacion() { return this->acumRadiacion; }
 	void setacumRadiacion(int acumRadiacion);
+	
+	cTerapia* getterapia() { return this->terapia; }
+	void setterapia(cTerapia* terapia);
+
+	cPaciente* getpaciente() { return this->paciente; }
+	void setpaciente(cPaciente* paciente);
+
+	cOncologo* getoncologo() { return this->oncologo; }
+	void setoncologo(cOncologo* oncologo);
+
+	cTumor* gettumor() { return this->tumor; }
+	void settumor(cTumor* tumor);
+	
 };
 
