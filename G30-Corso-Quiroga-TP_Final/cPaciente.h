@@ -3,7 +3,6 @@
 #include <string>
 #include "eTipoSangre.h"
 #include "cLista.h"
-#include "cTumor.h"
 #include "cFicha.h"
 
 using namespace std;
@@ -14,16 +13,16 @@ class cPaciente{
 private:
 	string nombre;
 	int DNI;
-	//ctime fechaNac;
+	time_t fechaNac;
 	string sexo;
 	int telefono;
 	eTipoSangre tipoSangre;
 	float salud;
-	cLista <cTumor>* listaTumor;
 	cFicha* ficha;
 public:
 	cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud);
 	~cPaciente();
+	
 	string getnombre() { return this->nombre; }
 	void setnombre(string nombre);
 
@@ -45,11 +44,6 @@ public:
 	cFicha* getficha() { return this->ficha; }
 	void setficha(cFicha* ficha);
 
-	int getcantTumor();
-	void agregarTumor(cTumor* tumor);
-	void eliminarTumor(cTumor* tumor);
-	cTumor* quitarTumor(cTumor* tumor);
+	
 };
 
-//implementar la clase tumor
-// implementar la clas

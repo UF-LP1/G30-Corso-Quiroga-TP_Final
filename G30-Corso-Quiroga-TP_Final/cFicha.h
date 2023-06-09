@@ -21,7 +21,8 @@ private:
 	cTerapia* terapia; 
 	cPaciente* paciente; 
 	cOncologo* oncologo; 
-	cTumor* tumor;
+	cTumor* tumor; //borrar
+	cLista <cTumor>* listaTumor;
 
 public:
 	cFicha(int acumRadiacion, cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo);
@@ -42,5 +43,11 @@ public:
 	cTumor* gettumor() { return this->tumor; }
 	void settumor(cTumor* tumor);
 	
+	void aplicarRadiacion(int radiacion);
+
+	int getcantTumor();
+	void agregarTumor(cTumor* tumor);
+	void eliminarTumor(cTumor* tumor);
+	cTumor* quitarTumor(cTumor* tumor);
 };
 

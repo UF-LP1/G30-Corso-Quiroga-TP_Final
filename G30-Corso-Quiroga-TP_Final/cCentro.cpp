@@ -8,6 +8,7 @@ cCentro::cCentro() {
 	
 }
 cCentro::~cCentro() {
+	
 	//destruir los objetos de las listas y las listas
 }
 
@@ -64,9 +65,14 @@ void cCentro::listarPacientes(){ //verifico si el paciente tiene una ficha, si e
 	int i;
 	for (i = 0; i < listaPaciente->getCA(); i++) {
 		cPaciente* paciente = listaPaciente->Buscar(i);
+		cOncologo* oncologo = paciente->getficha()->getoncologo();
 		cout << "Paciente" << i + 1 << ":" << endl;
 		cout << "Nombre:" << paciente->getnombre() << endl;
 		cout << "DNI:" << paciente->getDNI() << endl;
+		cout << "Oncologo " << i + 1 << ":" << endl;
+		cout << "Nombre Oncologo: " << oncologo->getnombre() << endl;
+		cout << "ID Oncologo: " << oncologo->getID() << endl;
+		cout << endl;
 		if (paciente->getficha() != NULL) { //si no tiene una ficha entonces no imprime estos ultimos datos
 			cTumor* tumor = paciente->getficha()->gettumor();
 			cout << "Tumor - Tamanio: " << tumor->gettamanio() << ", Ubicacion: " << tumor->getubicacion() << endl;
@@ -74,7 +80,7 @@ void cCentro::listarPacientes(){ //verifico si el paciente tiene una ficha, si e
 		cout << endl;
 	}
 }
-
+/*
 void cCentro::listarOncologos(){
 	int i;
 	for (i = 0; i < listaOncologo->getCA(); i++) {
@@ -85,5 +91,5 @@ void cCentro::listarOncologos(){
 		cout << endl;
 	}
 }
-
+*/
 
