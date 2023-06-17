@@ -6,6 +6,10 @@ cFicha::cFicha(int acumRadiacion, cTerapia* terapia, cPaciente* paciente, cOncol
 	this->listaTumor = new cLista<cTumor>(10);
 }
 
+cFicha::cFicha(cPaciente* paciente)
+{
+}
+
 cFicha::~cFicha() {
 	//destruir listas
 }

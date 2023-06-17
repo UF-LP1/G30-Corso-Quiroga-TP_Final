@@ -26,6 +26,7 @@ private:
 
 public:
 	cFicha(int acumRadiacion, cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo);
+	cFicha(cPaciente* paciente);
 	~cFicha();
 
 	int getacumRadiacion() { return this->acumRadiacion; }

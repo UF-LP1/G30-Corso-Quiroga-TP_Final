@@ -44,6 +44,14 @@ void cCentro::eliminarOncologo(cOncologo* oncologo){ //si encuentro la posicion 
 	}
 }
 
+void cCentro::crearFicha(cPaciente* paciente){
+	//chequear que el paciente este
+	int i = rand() % 0 + listaOncologo->getCA();
+	cOncologo* oncologo = listaOncologo->Buscar(i);
+
+	cFicha* ficha = new cFicha(0,)
+}
+
 
 
 cLista <cPaciente>* cCentro::buscarPacienteTyC(cTerapia* terapia, eUbicacion ubicacion) {

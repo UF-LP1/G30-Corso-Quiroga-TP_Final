@@ -28,9 +28,11 @@ public:
 	void agregarOncologo(cOncologo* oncologo);
 	void eliminarOncologo(cOncologo* oncologo);
 
-	cLista <cPaciente>* buscarPacienteTyC(cTerapia* terapia, eUbicacion ubicacion);
+	void crearFicha(cPaciente* paciente);
 
+	cLista <cPaciente>* buscarPacienteTyC(cTerapia* terapia, eUbicacion ubicacion);
+	
 	void listarPacientes();
-	void listarOncologos();
+	//void listarOncologos();
 };
 
