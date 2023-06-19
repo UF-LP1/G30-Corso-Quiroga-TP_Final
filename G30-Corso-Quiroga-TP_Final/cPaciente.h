@@ -20,7 +20,7 @@ private:
 	float salud;
 	cFicha* ficha;
 public:
-	cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud);
+	cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud, time_t fechaNac);
 	~cPaciente();
 	
 	string getnombre() { return this->nombre; }

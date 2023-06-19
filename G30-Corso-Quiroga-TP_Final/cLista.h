@@ -34,7 +34,7 @@ public:
 	int getCA() const { return ca; };
 	void operator+(T1* p) { Insertar(p); };
 	void operator-(T1* p) { Eliminar(p); };
-//	friend ostream& operator<< <>(ostream& out, cLista<T1>& Lista);
+	friend ostream& operator<<(ostream& out, cLista<T1>& Lista);
 
 
 	T1* operator[](unsigned int pos)
@@ -181,9 +181,9 @@ inline T1* cLista<T1>::Buscar(int pos)
 	return NULL;
 }
 
-/*
+
 template <class T1>
-ostream& operator<< <>(ostream& out, cLista<T1>& Lista)
+ostream& operator << (ostream& out, cLista<T1>& Lista)
 {
 	for (int i = 0; i < Lista.ca; i++)
 	{
@@ -191,4 +191,4 @@ ostream& operator<< <>(ostream& out, cLista<T1>& Lista)
 	}
 	return out;
 }
-*/
+

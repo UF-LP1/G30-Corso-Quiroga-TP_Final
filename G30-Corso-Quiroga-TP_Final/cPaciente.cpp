@@ -6,7 +6,7 @@ using namespace std;
 
 #include "cPaciente.h"
 
-cPaciente::cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud)
+cPaciente::cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud, time_t fechaNac)
 {
 	this->nombre = nombre;
 	this->DNI = DNI;
@@ -14,6 +14,7 @@ cPaciente::cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSan
 	this->telefono = telefono;
 	this->tipoSangre = tipoSangre;
 	this->salud = salud;
+	this->fechaNac = fechaNac;
 }
 
 cPaciente::~cPaciente() {}

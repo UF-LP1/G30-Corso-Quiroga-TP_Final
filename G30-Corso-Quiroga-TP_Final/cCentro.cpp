@@ -49,8 +49,13 @@ void cCentro::crearFicha(cPaciente* paciente){
 	int i = rand() % 0 + listaOncologo->getCA();
 	cOncologo* oncologo = listaOncologo->Buscar(i);
 
-	cFicha* ficha = new cFicha(0,)
-}
+	int j = rand() % 0 + listaPaciente->getCA();
+	paciente = listaPaciente->Buscar(j);
+
+	//int terapia = this->getTipoTerapia;
+
+	//cFicha* ficha = new cFicha(0, terapia, paciente, oncologo);
+} //ASI???????????????????
 
 
 
@@ -100,4 +105,8 @@ void cCentro::listarOncologos(){
 	}
 }
 */
+void cCentro::listarOncologo() {
+
+	//USAR OSTREAM !!!!!!!!!!!!!!!!
+}
 

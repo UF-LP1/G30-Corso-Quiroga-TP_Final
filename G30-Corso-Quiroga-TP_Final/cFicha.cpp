@@ -1,9 +1,10 @@
 #include "cFicha.h"
 
-cFicha::cFicha(int acumRadiacion, cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo) {
+cFicha::cFicha(int acumRadiacion, cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo, time_t fecha) {
 	this->acumRadiacion = acumRadiacion;
 
 	this->listaTumor = new cLista<cTumor>(10);
+	this->fecha = fecha;
 }
 
 cFicha::cFicha(cPaciente* paciente)
@@ -11,7 +12,7 @@ cFicha::cFicha(cPaciente* paciente)
 }
 
 cFicha::~cFicha() {
-	//destruir listas
+	//destruir listas FALTA!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 void cFicha::setacumRadiacion(int acumRadiacion)

@@ -16,16 +16,16 @@ class cTumor;
 class cFicha
 {
 private:
-	//cTime fecha;
+	time_t fecha;
 	int acumRadiacion;
 	cTerapia* terapia; 
 	cPaciente* paciente; 
 	cOncologo* oncologo; 
-	cTumor* tumor; //borrar
+	cTumor* tumor; //BORRAR!!!!!!!
 	cLista <cTumor>* listaTumor;
 
 public:
-	cFicha(int acumRadiacion, cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo);
+	cFicha(int acumRadiacion, cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo, time_t fecha);
 	cFicha(cPaciente* paciente);
 	~cFicha();
 
