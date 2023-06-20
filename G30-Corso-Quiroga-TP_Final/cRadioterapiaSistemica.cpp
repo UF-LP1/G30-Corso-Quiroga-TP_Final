@@ -3,6 +3,10 @@
 cRadioterapiaSistemica::cRadioterapiaSistemica(int gy, int cantSesiones): cTerapia(gy, cantSesiones) {
 
 }
+cRadioterapiaSistemica::cRadioterapiaSistemica() : cTerapia(gy, cantSesiones) {
+	this->gy = 20;
+	this->cantSesiones = 5;
+}
 cRadioterapiaSistemica::~cRadioterapiaSistemica() {}
 
 int cRadioterapiaSistemica::getTipoTerapia() { return 3; }

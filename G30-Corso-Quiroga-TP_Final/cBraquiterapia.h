@@ -9,6 +9,7 @@ class cBraquiterapia : public cTerapia
 {
 public:
 	cBraquiterapia(int gy, int cantSesiones);
+	cBraquiterapia();
 	~cBraquiterapia();
 	int getTipoTerapia();
 	void AplicarTerapia(cPaciente* paciente);

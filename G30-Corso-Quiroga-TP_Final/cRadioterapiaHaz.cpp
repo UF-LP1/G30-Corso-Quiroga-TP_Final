@@ -3,6 +3,12 @@
 cRadioterapiaHaz::cRadioterapiaHaz(int gy, int cantSesiones): cTerapia (gy, cantSesiones){
 
 }
+
+cRadioterapiaHaz::cRadioterapiaHaz(): cTerapia(gy, cantSesiones) {
+	this->gy = 20;
+	this->cantSesiones = 5;
+}
+
 cRadioterapiaHaz::~cRadioterapiaHaz(){}
 
 int cRadioterapiaHaz::getTipoTerapia(){ return 1; }

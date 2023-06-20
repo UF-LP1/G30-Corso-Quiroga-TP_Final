@@ -4,6 +4,9 @@
 #include <string>
 #include "cTumor.h"
 #include "cTerapia.h"
+#include "cRadioterapiaHaz.h"
+#include "cBraquiterapia.h"
+#include "cRadioterapiaSistemica.h"
 
 using namespace std;
 
@@ -18,7 +21,7 @@ class cDosimetrista
 public:
 	cDosimetrista(int tipoTerapia);
 	~cDosimetrista();
-	int calcularDosisTotal(); //CORREGIR
-	int determinarTipoTerapia(cTumor* tumor); //CORREGIR
+	//int calcularDosisTotal(); //CORREGIR
+	cTerapia* determinarTipoTerapia(cLista<cTumor>* tumores); //CORREGIR
 };
 

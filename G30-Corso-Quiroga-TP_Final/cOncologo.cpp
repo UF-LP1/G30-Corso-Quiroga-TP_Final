@@ -33,28 +33,32 @@ int cOncologo::suministrarDosis() { //FALTA HACER ESTO
 	}
 	return dosis;
 } //ASI?????????????????????????
-
+/*
 void cOncologo::frecuencia() { //FALTA HACER ESTO
 	
 	int dosisTotal = this->dosimetrista->calcularDosisTotal();
 	int dosis = this->suministrarDosis();
 
 	float frec = dosisTotal / dosis;
-}//ASI?????????????????????????
+}*/
 
 cLista<cTumor>* cOncologo::encontrarTumores(cPaciente* paciente){
-	int i = rand () % 0 + 3;
+	cLista<cTumor>* listaClonada = new cLista<cTumor>(cOncologo::tumores->getCA());
+	int i;
+	for (i = 0; i < cOncologo::tumores->getCA(); i++) {
+		listaClonada->Insertar(cOncologo::tumores->Buscar(i)); //clono la lista
+	}
+
+	i = rand () % 0 + 3;
 	cLista <cTumor>* ToR = new cLista <cTumor>(i);
 	if (i > 0) {
 		int j;
-		for (j = 0; j < cOncologo::tumores->getCA(); j++) {
-			int k= rand() % 0 + 3;
-			cOncologo::tumores->Buscar(k);
-		} //ASI???????
+		for (j = 0; j < i; j++) {
+			int k= rand() % 0 + listaClonada->getCA();
+			ToR->Insertar(listaClonada->Buscar(k));
+			listaClonada->Eliminar(k);
+		} 
 		
-		//hacer un for y adentro poner esto:
-		// crear un random y luego:
-		//cOncologo::tumores->Buscar() //ahi dentro poner el nombre del random
 	}
 	return ToR;
 	

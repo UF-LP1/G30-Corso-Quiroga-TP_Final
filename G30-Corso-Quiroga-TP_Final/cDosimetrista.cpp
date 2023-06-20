@@ -4,7 +4,7 @@ cDosimetrista::cDosimetrista(int tipoTerapia) {
 	this->tipoTerapia = tipoTerapia;
 }
 cDosimetrista::~cDosimetrista() {}
-
+/*
 int cDosimetrista::calcularDosisTotal() { //FALTA HACER ESTO
 	int tipo = 0, dosisTotal = 0;
 	tipo = this->terapia->getTipoTerapia();
@@ -17,30 +17,41 @@ int cDosimetrista::calcularDosisTotal() { //FALTA HACER ESTO
 		dosisTotal = rand() % 20 + 40; // 20-40 Gy
 
 	return dosisTotal;
-}
+}*/
 
-int cDosimetrista::determinarTipoTerapia(cTumor* tumor) {//FALTA HACER ESTO
+cTerapia* cDosimetrista::determinarTipoTerapia(cLista<cTumor>* tumores) {//FALTA HACER ESTO
 	int i = 0;
-
+	cTerapia* tipoTerapia = NULL;
+	if (tumores->getCA() == 1) {
+		cTumor* tumor = tumores->Buscar(0);
 	switch (tumor->getubicacion()) {
 		case (cabeza, cuello, mama, utero, ojo):
 			 i = rand() % 0 + 1;
 			 if(i == 0)
-				 tipoTerapia = 1;
+				 tipoTerapia = new cRadioterapiaHaz();  
 			 else
-				 tipoTerapia = 2;
+				 tipoTerapia = new cBraquiterapia();
 			 break;
 		case (tiroides, prostata):
 			i = rand() % 0 + 1;
 			if (i == 0)
-				tipoTerapia = 1;
+				tipoTerapia = new cRadioterapiaHaz();
 			else
-				tipoTerapia = 3;
+				tipoTerapia = new cRadioterapiaSistemica();
 			break;
 		case (pulmon, intestino):
-			tipoTerapia = 1;
+			tipoTerapia = new cRadioterapiaHaz();
 			break;
 	}
+
+	}
+	else {
+		tipoTerapia = new cRadioterapiaHaz(); 
+	}
+	
 	return tipoTerapia;
 }
 
+//1 = HAZ
+//2 = Braqui
+//3 = Sistemica

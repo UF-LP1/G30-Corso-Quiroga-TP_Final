@@ -5,6 +5,7 @@ cCentro::cCentro() {
 
 	this->listaPaciente = new cLista<cPaciente>(maxPaciente);
 	this->listaOncologo = new cLista<cOncologo>(maxOncologo);
+	this->listaDosimetrista = new cLista<cDosimetrista>(maxDosimetrista);
 	
 }
 cCentro::~cCentro() {
@@ -44,18 +45,22 @@ void cCentro::eliminarOncologo(cOncologo* oncologo){ //si encuentro la posicion 
 	}
 }
 
-void cCentro::crearFicha(cPaciente* paciente){
+cFicha* cCentro::crearFicha(cPaciente* paciente){
 	//chequear que el paciente este
+	cTerapia* terapia = NULL;
 	int i = rand() % 0 + listaOncologo->getCA();
 	cOncologo* oncologo = listaOncologo->Buscar(i);
+	cLista<cTumor>* tumores = oncologo->encontrarTumores(paciente);
+	if (tumores->getCA() > 0) {
+		i = rand() % 0 + listaDosimetrista->getCA();
+		cDosimetrista* dosimetrista = listaDosimetrista->Buscar(i);
+		terapia = dosimetrista->determinarTipoTerapia(tumores);
+	}
 
-	int j = rand() % 0 + listaPaciente->getCA();
-	paciente = listaPaciente->Buscar(j);
+	cFicha* ficha = new cFicha(0, terapia, paciente, oncologo, 12/12/20);
 
-	//int terapia = this->getTipoTerapia;
-
-	//cFicha* ficha = new cFicha(0, terapia, paciente, oncologo);
-} //ASI???????????????????
+	return ficha;
+} 
 
 
 

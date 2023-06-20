@@ -3,6 +3,11 @@
 cBraquiterapia::cBraquiterapia(int gy, int cantSesiones) : cTerapia(gy, cantSesiones) {
 
 }
+
+cBraquiterapia::cBraquiterapia() : cTerapia(gy, cantSesiones) {
+	this->gy = 20;
+	this->cantSesiones = 5;
+}
 cBraquiterapia::~cBraquiterapia() {}
 
 int cBraquiterapia::getTipoTerapia() { return 2; }

@@ -9,7 +9,11 @@ cTumor::cTumor(eTamanio tamanio, eUbicacion ubicacion, int acumRadiacion){
 	this->ubicacion = ubicacion;
 	this->acumRadiacion = acumRadiacion;
 }
-
+cTumor::cTumor() {
+	this->tamanio = eTamanio:: grande;
+	this->ubicacion = eUbicacion::ojo;
+	this->acumRadiacion = 0;
+}
 cTumor::~cTumor() {}
 
 void cTumor::settamanio(eTamanio tamanio)

@@ -5,6 +5,7 @@
 #include "cLista.h"
 #include "cFicha.h"
 
+
 using namespace std;
 class cFicha;
 class cTumor;

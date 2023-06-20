@@ -11,6 +11,7 @@ using namespace std;
 class cTumor;
 class cPaciente;
 class cTerapia;
+class cDosimetrista;
 
 class cOncologo{
 
@@ -24,7 +25,7 @@ public:
 	cOncologo(string nombre, int ID);
 	~cOncologo();
 	int suministrarDosis();  
-	void frecuencia(); 
+	//void frecuencia(); 
 
 	cLista <cTumor>* encontrarTumores(cPaciente* paciente);
 	string getnombre() { return this->nombre; }

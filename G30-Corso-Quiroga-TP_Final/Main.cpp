@@ -25,21 +25,21 @@ int main() {
 	cTumor* tumor3 = new cTumor(); //por defecto
 	cTumor* tumor4 = new cTumor(grande, cuello, 20);
 	cOncologo::tumores->Insertar(tumor1); //estoy insertando un tumor en la lista 
-	cOncologo::tumores->Insertar(tumor2);
 	cOncologo::tumores->Insertar(tumor3);
 	cOncologo::tumores->Insertar(tumor4);
 
 	cPaciente* paciente1 = new cPaciente("Pepe", 12345678, "Masculino", 123455689765, O, 30.00, 12/11/20);
 	cCentro* centro = new cCentro();
 	cDosimetrista* dosimetrista = new cDosimetrista(1);
-
+	cOncologo* oncologo1 = new cOncologo("Jose Maria", 001);//HACER ESTO
 
 	centro->agregarPaciente(paciente1);
-
-
-	delete dosimetrista;
+	centro->agregarOncologo(oncologo1);
+	//centro->agregarDosimetrista(dosimetrista); //HACER ESTO
+	
+	centro->crearFicha(paciente1);
+	
 	delete centro;
-	delete paciente1;
 
 	return 0;
 }

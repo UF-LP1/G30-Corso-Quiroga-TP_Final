@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <string>
-
 #include "eTamanio.h"
 #include "eUbicacion.h"
 
@@ -16,6 +15,7 @@ private:
 
 public:
 	cTumor(eTamanio tamanio,eUbicacion ubicacion,int acumRadiacion);
+	cTumor();
 	~cTumor();
 
 	eTamanio gettamanio() { return this->tamanio; }
