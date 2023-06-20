@@ -114,4 +114,24 @@ void cCentro::listarOncologo() {
 
 	//USAR OSTREAM !!!!!!!!!!!!!!!!
 }
+/*
+void agregarDosimetrista(cDosimetrista* dosimetrista) {
+	this->listaDosimetrista->Insertar(dosimetrista);
+	try { this->listaDosimetrista->Insertar(dosimetrista); }
+	catch (exception& e) {
+		cout << e.what() << endl;
+	}
 
+}
+void eliminarDosimetrista(cDosimetrista* dosimetrista) {
+	int pos = listaDosimetrista->BuscarAtPos(dosimetrista);
+	if (pos != -1) {
+		cDosimetrista* eliminarDosimetrista = listaDosimetrista->QuitarPos(pos);
+		delete eliminarDosimetrista;
+	}
+
+}
+void listarDosimetrista() {
+
+
+}*/

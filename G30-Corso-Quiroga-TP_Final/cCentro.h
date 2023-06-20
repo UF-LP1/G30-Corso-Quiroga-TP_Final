@@ -32,6 +32,10 @@ public:
 	void eliminarOncologo(cOncologo* oncologo);
 	void listarOncologo();
 
+	void agregarDosimetrista(cDosimetrista* dosimetrista);
+	void eliminarDosimetrista(cDosimetrista* dosimetrista);
+	void listarDosimetrista();
+
 	cFicha* crearFicha(cPaciente* paciente);
 
 	cLista <cPaciente>* buscarPacienteTyC(cTerapia* terapia, eUbicacion ubicacion);
