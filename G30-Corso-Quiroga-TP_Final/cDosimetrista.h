@@ -1,5 +1,6 @@
 #pragma once
-
+#ifndef _CDOSIMETRISTA_H
+#define _CDOSIMETRISTA_H
 #include <iostream>
 #include <string>
 #include "cTumor.h"
@@ -7,6 +8,7 @@
 #include "cRadioterapiaHaz.h"
 #include "cBraquiterapia.h"
 #include "cRadioterapiaSistemica.h"
+#include "eTipoTerapia.h"
 
 using namespace std;
 
@@ -15,13 +17,13 @@ class cTumor;
 
 class cDosimetrista
 {
-	int tipoTerapia;
+	eTipoTerapia tipoTerapia;
 	cTerapia* terapia;
 	cTumor* tumor;
 public:
-	cDosimetrista(int tipoTerapia);
+	cDosimetrista();
 	~cDosimetrista();
-	//int calcularDosisTotal(); //CORREGIR
-	cTerapia* determinarTipoTerapia(cLista<cTumor>* tumores); //CORREGIR
+	//int calcularDosisTotal(); 
+	cTerapia* determinarTipoTerapia(cLista<cTumor>* tumores); 
 };
-
+#endif

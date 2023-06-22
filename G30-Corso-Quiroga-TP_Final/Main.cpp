@@ -17,8 +17,6 @@ using namespace std;
 
 int main() {
 	cOncologo::tumores = new cLista<cTumor>(4);
-	//crear 4 tumores 
-	//insertarlos en la lista
 	//en buscartumor asignar un random y leer de la lista
 	cTumor* tumor1 = new cTumor(mediano, cabeza, 40); //por parametro
 	cTumor* tumor2 = new cTumor(*tumor1); //por copia
@@ -30,14 +28,16 @@ int main() {
 
 	cPaciente* paciente1 = new cPaciente("Pepe", 12345678, "Masculino", 123455689765, O, 30.00, 12/11/20);
 	cCentro* centro = new cCentro();
-	cDosimetrista* dosimetrista = new cDosimetrista(1);
-	cOncologo* oncologo1 = new cOncologo("Jose Maria", 001);//HACER ESTO
+	cDosimetrista* dosimetrista = new cDosimetrista();
+	cOncologo* oncologo1 = new cOncologo("Jose Maria", 001);
 
 	centro->agregarPaciente(paciente1);
 	centro->agregarOncologo(oncologo1);
-	//centro->agregarDosimetrista(dosimetrista); //HACER ESTO
-	
+	centro->agregarDosimetrista(dosimetrista); 
 	centro->crearFicha(paciente1);
+
+	centro->tratarPaciente(paciente1);
+	//centro->buscarPacienteTyC();
 	
 	delete centro;
 

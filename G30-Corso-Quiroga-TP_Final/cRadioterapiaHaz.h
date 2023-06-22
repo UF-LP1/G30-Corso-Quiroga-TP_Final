@@ -1,4 +1,8 @@
-#pragma once
+#ifndef _CRADIOTERAPIAHAZ_H
+#define _CRADIOTERAPIAHAZ_H
+
+class cTerapia;
+class cPaciente;
 #include <iostream>
 #include <string>
 #include "cTerapia.h"
@@ -12,7 +16,7 @@ public:
 	cRadioterapiaHaz(int gy, int cantSesiones);
 	cRadioterapiaHaz();
 	~cRadioterapiaHaz();
-	int getTipoTerapia();
+	eTipoTerapia getTipoTerapia();
 	void AplicarTerapia(cPaciente* paciente);
 };
-
+#endif

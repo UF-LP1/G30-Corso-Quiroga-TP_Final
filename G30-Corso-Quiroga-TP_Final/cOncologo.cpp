@@ -7,7 +7,7 @@ cOncologo::cOncologo(string nombre, int ID) {
 
 cOncologo::~cOncologo() {}
 
-int cOncologo::suministrarDosis() { //FALTA HACER ESTO
+int cOncologo::suministrarDosis() { 
 	int t= terapia->getTipoTerapia();
 	int dosis = 0, aux = 0;
 	aux = rand() % 0 + 1;
@@ -32,7 +32,7 @@ int cOncologo::suministrarDosis() { //FALTA HACER ESTO
 		
 	}
 	return dosis;
-} //ASI?????????????????????????
+} 
 /*
 void cOncologo::frecuencia() { //FALTA HACER ESTO
 	
@@ -54,12 +54,13 @@ cLista<cTumor>* cOncologo::encontrarTumores(cPaciente* paciente){
 	if (i > 0) {
 		int j;
 		for (j = 0; j < i; j++) {
-			int k= rand() % 0 + listaClonada->getCA();
+			int k= rand() % listaClonada->getCA();
 			ToR->Insertar(listaClonada->Buscar(k));
 			listaClonada->Eliminar(k);
 		} 
 		
 	}
+	delete listaClonada;
 	return ToR;
 	
 }

@@ -10,7 +10,9 @@ cCentro::cCentro() {
 }
 cCentro::~cCentro() {
 	
-	//destruir los objetos de las listas y las listas
+	delete listaDosimetrista;
+	delete listaPaciente;
+	delete listaPaciente;
 }
 
 void cCentro::agregarPaciente(cPaciente* paciente) {
@@ -46,20 +48,29 @@ void cCentro::eliminarOncologo(cOncologo* oncologo){ //si encuentro la posicion 
 }
 
 cFicha* cCentro::crearFicha(cPaciente* paciente){
-	//chequear que el paciente este
-	cTerapia* terapia = NULL;
-	int i = rand() % 0 + listaOncologo->getCA();
-	cOncologo* oncologo = listaOncologo->Buscar(i);
-	cLista<cTumor>* tumores = oncologo->encontrarTumores(paciente);
-	if (tumores->getCA() > 0) {
-		i = rand() % 0 + listaDosimetrista->getCA();
-		cDosimetrista* dosimetrista = listaDosimetrista->Buscar(i);
-		terapia = dosimetrista->determinarTipoTerapia(tumores);
+	try {
+		int pos = listaPaciente->BuscarAtPos(paciente); //chequeo que el paciente este
+		if (pos == -1) {
+			throw runtime_error("El paciente no esta registrado en el centro.");
+		}
+		cTerapia* terapia = NULL;
+		int i = rand() % listaOncologo->getCA();
+		cOncologo* oncologo = listaOncologo->Buscar(i);
+		cLista<cTumor>* tumores = oncologo->encontrarTumores(paciente);
+		if (tumores->getCA() > 0) {
+			i = rand() % listaDosimetrista->getCA();
+			cDosimetrista* dosimetrista = listaDosimetrista->Buscar(i);
+			terapia = dosimetrista->determinarTipoTerapia(tumores);
+		}
+
+		cFicha* ficha = new cFicha(terapia, paciente, oncologo, 12 / 12 / 20);
+
+		return ficha;
 	}
-
-	cFicha* ficha = new cFicha(0, terapia, paciente, oncologo, 12/12/20);
-
-	return ficha;
+	catch (const exception& e) {
+		cout << "Error al crear la ficha: " << e.what() << endl;
+		return nullptr;
+	}
 } 
 
 
@@ -110,12 +121,9 @@ void cCentro::listarOncologos(){
 	}
 }
 */
-void cCentro::listarOncologo() {
 
-	//USAR OSTREAM !!!!!!!!!!!!!!!!
-}
-/*
-void agregarDosimetrista(cDosimetrista* dosimetrista) {
+
+void cCentro::agregarDosimetrista(cDosimetrista* dosimetrista) {
 	this->listaDosimetrista->Insertar(dosimetrista);
 	try { this->listaDosimetrista->Insertar(dosimetrista); }
 	catch (exception& e) {
@@ -123,7 +131,7 @@ void agregarDosimetrista(cDosimetrista* dosimetrista) {
 	}
 
 }
-void eliminarDosimetrista(cDosimetrista* dosimetrista) {
+void cCentro:: eliminarDosimetrista(cDosimetrista* dosimetrista) {
 	int pos = listaDosimetrista->BuscarAtPos(dosimetrista);
 	if (pos != -1) {
 		cDosimetrista* eliminarDosimetrista = listaDosimetrista->QuitarPos(pos);
@@ -131,7 +139,11 @@ void eliminarDosimetrista(cDosimetrista* dosimetrista) {
 	}
 
 }
-void listarDosimetrista() {
 
-
-}*/
+void cCentro::tratarPaciente(cPaciente* paciente){
+	cFicha* ficha = paciente->getficha();
+	if (ficha->getsesion() < ficha->getterapia()->getcantsesion()) { 
+		ficha->getterapia()->AplicarTerapia(paciente);
+		ficha->setcantsesion(ficha->getsesion()+1);
+	}
+}

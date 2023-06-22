@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _CFICHA_H
+#define _CFICHA_H
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -18,6 +20,8 @@ class cFicha
 private:
 	time_t fecha;
 	int acumRadiacion;
+	int sesionPracticada;
+	int cantsesion;
 	cTerapia* terapia; 
 	cPaciente* paciente; 
 	cOncologo* oncologo; 
@@ -25,12 +29,18 @@ private:
 	cLista <cTumor>* listaTumor;
 
 public:
-	cFicha(int acumRadiacion, cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo, time_t fecha);
+	cFicha(cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo, time_t fecha);
 	cFicha(cPaciente* paciente);
 	~cFicha();
 
 	int getacumRadiacion() { return this->acumRadiacion; }
 	void setacumRadiacion(int acumRadiacion);
+
+	int getsesion() { return this->sesionPracticada; }
+	void setsesion(int sesionesPracticadas);
+
+	int getcantsesion() { return this->cantsesion; }
+	void setcantsesion(int cantsesiones);
 	
 	cTerapia* getterapia() { return this->terapia; }
 	void setterapia(cTerapia* terapia);
@@ -51,4 +61,4 @@ public:
 	void eliminarTumor(cTumor* tumor);
 	cTumor* quitarTumor(cTumor* tumor);
 };
-
+#endif

@@ -1,7 +1,8 @@
 #include "cBraquiterapia.h"
 
 cBraquiterapia::cBraquiterapia(int gy, int cantSesiones) : cTerapia(gy, cantSesiones) {
-
+	this->gy = gy;
+	this->cantSesiones = cantSesiones;
 }
 
 cBraquiterapia::cBraquiterapia() : cTerapia(gy, cantSesiones) {
@@ -10,7 +11,7 @@ cBraquiterapia::cBraquiterapia() : cTerapia(gy, cantSesiones) {
 }
 cBraquiterapia::~cBraquiterapia() {}
 
-int cBraquiterapia::getTipoTerapia() { return 2; }
+eTipoTerapia cBraquiterapia::getTipoTerapia() { return Braquiterapia; }
 
 void cBraquiterapia::AplicarTerapia(cPaciente* paciente) {
 

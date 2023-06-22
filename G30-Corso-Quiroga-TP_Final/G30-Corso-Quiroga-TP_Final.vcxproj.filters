@@ -95,5 +95,8 @@
     <ClInclude Include="cLista.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="eTipoTerapia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

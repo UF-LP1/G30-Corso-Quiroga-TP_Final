@@ -154,6 +154,7 @@
     <ClInclude Include="cTumor.h" />
     <ClInclude Include="eTamanio.h" />
     <ClInclude Include="eTipoSangre.h" />
+    <ClInclude Include="eTipoTerapia.h" />
     <ClInclude Include="eUbicacion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

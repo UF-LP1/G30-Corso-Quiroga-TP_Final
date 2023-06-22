@@ -1,14 +1,16 @@
-#pragma once
+#ifndef _CPACIENTE_H
+#define _CPACIENTE_H
+
+class cFicha;
+
 #include <iostream>
 #include <string>
 #include "eTipoSangre.h"
 #include "cLista.h"
 #include "cFicha.h"
 
-
 using namespace std;
-class cFicha;
-class cTumor;
+
 
 class cPaciente{
 private:
@@ -47,4 +49,4 @@ public:
 
 	
 };
-
+#endif

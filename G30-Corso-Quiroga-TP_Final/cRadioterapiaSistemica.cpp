@@ -1,7 +1,8 @@
 #include "cRadioterapiaSistemica.h"
 
 cRadioterapiaSistemica::cRadioterapiaSistemica(int gy, int cantSesiones): cTerapia(gy, cantSesiones) {
-
+	this->gy = gy;
+	this->cantSesiones = cantSesiones;
 }
 cRadioterapiaSistemica::cRadioterapiaSistemica() : cTerapia(gy, cantSesiones) {
 	this->gy = 20;
@@ -9,7 +10,7 @@ cRadioterapiaSistemica::cRadioterapiaSistemica() : cTerapia(gy, cantSesiones) {
 }
 cRadioterapiaSistemica::~cRadioterapiaSistemica() {}
 
-int cRadioterapiaSistemica::getTipoTerapia() { return 3; }
+eTipoTerapia cRadioterapiaSistemica::getTipoTerapia() { return Braquiterapia; }
 
 void cRadioterapiaSistemica::AplicarTerapia(cPaciente* paciente) {
 

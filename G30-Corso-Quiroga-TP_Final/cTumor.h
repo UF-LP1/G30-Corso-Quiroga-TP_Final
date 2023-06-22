@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _CTUMOR_H
+#define _CTUMOR_H
 #include <iostream>
 #include <string>
 #include "eTamanio.h"
@@ -26,4 +28,4 @@ public:
 	void setacumradiacion(int acumRadiacion);
 
 };
-
+#endif

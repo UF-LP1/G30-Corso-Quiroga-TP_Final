@@ -1,4 +1,6 @@
 #pragma once
+#ifndef _CONCOLOGO_H
+#define _CONCOLOGO_H
 #include <iostream>
 #include <string>
 #include "cTumor.h"
@@ -33,4 +35,4 @@ public:
 	int getID() { return this->ID; }
 	void setID(int ID);
 };
-
+#endif

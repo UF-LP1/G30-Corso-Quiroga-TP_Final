@@ -80,6 +80,7 @@ inline cLista<T1>::~cLista(void)
 	catch (exception* e) {
 		throw e;
 	}
+
 }
 
 

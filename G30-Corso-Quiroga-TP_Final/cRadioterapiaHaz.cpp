@@ -1,7 +1,8 @@
 #include "cRadioterapiaHaz.h"
 
 cRadioterapiaHaz::cRadioterapiaHaz(int gy, int cantSesiones): cTerapia (gy, cantSesiones){
-
+	this->gy = gy;
+	this->cantSesiones = cantSesiones;
 }
 
 cRadioterapiaHaz::cRadioterapiaHaz(): cTerapia(gy, cantSesiones) {
@@ -11,7 +12,7 @@ cRadioterapiaHaz::cRadioterapiaHaz(): cTerapia(gy, cantSesiones) {
 
 cRadioterapiaHaz::~cRadioterapiaHaz(){}
 
-int cRadioterapiaHaz::getTipoTerapia(){ return 1; }
+eTipoTerapia cRadioterapiaHaz::getTipoTerapia(){ return RadioterapiaHaz; } 
 
 void cRadioterapiaHaz:: AplicarTerapia(cPaciente* paciente){
 

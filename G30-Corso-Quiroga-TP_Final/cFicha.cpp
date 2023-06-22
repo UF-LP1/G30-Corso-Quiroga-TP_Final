@@ -1,8 +1,10 @@
 #include "cFicha.h"
 
-cFicha::cFicha(int acumRadiacion, cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo, time_t fecha) {
-	this->acumRadiacion = acumRadiacion;
-
+cFicha::cFicha( cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo, time_t fecha) {
+	this->acumRadiacion = 0;
+	this->sesionPracticada = 0;
+	this->oncologo = oncologo;
+	this->paciente = paciente;
 	this->listaTumor = new cLista<cTumor>(10);
 	this->fecha = fecha;
 }
@@ -12,12 +14,24 @@ cFicha::cFicha(cPaciente* paciente)
 }
 
 cFicha::~cFicha() {
-	//destruir listas FALTA!!!!!!!!!!!!!!!!!!!!!!!!
+	delete listaTumor;
 }
 
 void cFicha::setacumRadiacion(int acumRadiacion)
 {
 	this->acumRadiacion = acumRadiacion;
+	return;
+}
+
+void cFicha::setsesion(int sesionPracticada)
+{
+	this->sesionPracticada = sesionPracticada;
+	return;
+}
+
+void cFicha::setcantsesion(int cantsesion)
+{
+	this->cantsesion = cantsesion;
 	return;
 }
 
@@ -86,5 +100,3 @@ cTumor* cFicha::quitarTumor(cTumor* tumor) { //verifico si el tumor en la pos ac
 	}
 	return nullptr; //retorno nullptr si no encontre el tumor en la lista
 }
-
-//falta hacer la de buscar. Buscar por ubicacion de tumor????

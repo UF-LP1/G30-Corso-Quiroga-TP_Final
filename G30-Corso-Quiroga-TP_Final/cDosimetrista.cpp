@@ -1,11 +1,11 @@
 #include "cDosimetrista.h"
 
-cDosimetrista::cDosimetrista(int tipoTerapia) {
-	this->tipoTerapia = tipoTerapia;
+cDosimetrista::cDosimetrista() {
+
 }
 cDosimetrista::~cDosimetrista() {}
 /*
-int cDosimetrista::calcularDosisTotal() { //FALTA HACER ESTO
+int cDosimetrista::calcularDosisTotal() { 
 	int tipo = 0, dosisTotal = 0;
 	tipo = this->terapia->getTipoTerapia();
 	
@@ -19,7 +19,7 @@ int cDosimetrista::calcularDosisTotal() { //FALTA HACER ESTO
 	return dosisTotal;
 }*/
 
-cTerapia* cDosimetrista::determinarTipoTerapia(cLista<cTumor>* tumores) {//FALTA HACER ESTO
+cTerapia* cDosimetrista::determinarTipoTerapia(cLista<cTumor>* tumores) {
 	int i = 0;
 	cTerapia* tipoTerapia = NULL;
 	if (tumores->getCA() == 1) {
