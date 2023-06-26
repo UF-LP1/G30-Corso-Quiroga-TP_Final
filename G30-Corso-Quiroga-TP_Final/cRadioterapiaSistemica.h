@@ -16,7 +16,7 @@ public:
 	cRadioterapiaSistemica(int gy, int cantSesiones);
 	cRadioterapiaSistemica();
 	~cRadioterapiaSistemica();
-	eTipoTerapia getTipoTerapia();
+	
 	void AplicarTerapia(cPaciente* paciente);
 };
 #endif

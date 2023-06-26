@@ -17,6 +17,7 @@ class cTumor;
 
 class cDosimetrista
 {
+	friend class cTerapia;
 	eTipoTerapia tipoTerapia;
 	cTerapia* terapia;
 	cTumor* tumor;

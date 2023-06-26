@@ -10,7 +10,8 @@ class cPaciente;
 
 using namespace std;
 
-class cTerapia{
+class cTerapia {
+
 protected:
 	int gy;
 	int cantSesiones;
@@ -19,16 +20,17 @@ protected:
 	int cantsesion;
 public:
 	cTerapia(int gy, int cantSesiones);
+	cTerapia();
 	~cTerapia();
 
-	virtual eTipoTerapia getTipoTerapia() = 0;
+	eTipoTerapia getTipoTerapia(eTipoTerapia tipoTerapia);
 	virtual void AplicarTerapia(cPaciente* paciente) = 0;
 
 	int getcantsesion() { return this->cantsesion; }
 	void setcantsesion(int cantsesiones);
 
 	cPaciente* getpaciente() { return this->paciente; }
-	
+
 
 };
 

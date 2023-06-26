@@ -75,7 +75,7 @@ int cFicha::getcantTumor() {
 }
 
 void cFicha::agregarTumor(cTumor* tumor) {
-	this->listaTumor->Insertar(tumor);
+	
 	try { this->listaTumor->Insertar(tumor); }
 	catch (exception& e) {
 		cout << e.what() << endl;

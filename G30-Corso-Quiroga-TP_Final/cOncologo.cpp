@@ -42,27 +42,38 @@ void cOncologo::frecuencia() { //FALTA HACER ESTO
 	float frec = dosisTotal / dosis;
 }*/
 
-cLista<cTumor>* cOncologo::encontrarTumores(cPaciente* paciente){
+cLista<cTumor>* cOncologo::encontrarTumores(cPaciente* paciente) {
 	cLista<cTumor>* listaClonada = new cLista<cTumor>(cOncologo::tumores->getCA());
 	int i;
 	for (i = 0; i < cOncologo::tumores->getCA(); i++) {
-		listaClonada->Insertar(cOncologo::tumores->Buscar(i)); //clono la lista
+		try { listaClonada->Insertar(cOncologo::tumores->Buscar(i)); } //clono la lista }
+		catch (exception& e) {
+			cout << e.what() << endl;
+		}
+
 	}
 
-	i = rand () % 0 + 3;
+	i = rand() % 0 + 3;
 	cLista <cTumor>* ToR = new cLista <cTumor>(i);
 	if (i > 0) {
 		int j;
 		for (j = 0; j < i; j++) {
-			int k= rand() % listaClonada->getCA();
-			ToR->Insertar(listaClonada->Buscar(k));
-			listaClonada->Eliminar(k);
-		} 
-		
+			int k = rand() % listaClonada->getCA();
+			try { ToR->Insertar(listaClonada->Buscar(k)); }
+			catch (exception& e) {
+				cout << e.what() << endl;
+			}
+			try { listaClonada->Eliminar(k); }
+			catch (exception& e) {
+				cout << e.what() << endl;
+			}
+
+		}
+
 	}
 	delete listaClonada;
 	return ToR;
-	
+
 }
 
 void cOncologo::setnombre(string nombre)

@@ -11,7 +11,7 @@ cBraquiterapia::cBraquiterapia() : cTerapia(gy, cantSesiones) {
 }
 cBraquiterapia::~cBraquiterapia() {}
 
-eTipoTerapia cBraquiterapia::getTipoTerapia() { return Braquiterapia; }
+
 
 void cBraquiterapia::AplicarTerapia(cPaciente* paciente) {
 
