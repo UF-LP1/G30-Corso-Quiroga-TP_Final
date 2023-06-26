@@ -48,7 +48,9 @@ public:
 	cLista <cPaciente>* buscarPacienteTyC(cTerapia* terapia, eUbicacion ubicacion);
 	
 	void listarPacientes();
-	
 	void listarOncologo();
+
+	void operator+(cDosimetrista* dosimetrista);
+	void operator-(cDosimetrista* dosimetrista);
 };
 #endif

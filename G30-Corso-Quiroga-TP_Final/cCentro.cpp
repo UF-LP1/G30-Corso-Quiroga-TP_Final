@@ -126,10 +126,13 @@ void cCentro::listarOncologo() {
 	}*/
 }
 
+void cCentro::operator+(cDosimetrista* dosimetrista){
+	this->listaDosimetrista.push_back(dosimetrista);
+}
+
 
 
 void cCentro::agregarDosimetrista(cDosimetrista* dosimetrista) {
-
 	this->listaDosimetrista->operator+(dosimetrista);
 	/*
 	try { this->listaDosimetrista->Insertar(dosimetrista); }

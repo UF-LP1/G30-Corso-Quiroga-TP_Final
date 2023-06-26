@@ -60,3 +60,18 @@ void cPaciente::setficha(cFicha* ficha)
 	return;
 }
 
+string cPaciente::to_string(){
+	string result = "Paciente ";
+	result += this->nombre;
+	result += ", con DNI: ";
+	result += this->DNI;
+	result += " y numero de telefono: ";
+	result += this->telefono;
+	return result;
+}
+
+ostream& operator<<(ostream& out, cPaciente& paciente)
+{ //accedo al método to_string() de la clase cPaciente para obtener la representación de cadena de texto del objeto paciente.
+	out << paciente.to_string() << endl;
+	return out;
+}

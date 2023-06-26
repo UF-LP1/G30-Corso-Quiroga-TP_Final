@@ -47,6 +47,9 @@ public:
 	cFicha* getficha() { return this->ficha; }
 	void setficha(cFicha* ficha);
 
+	string to_string();
+	friend ostream& operator<<(ostream& out, cPaciente& paciente); //tengo acceso directo a los miembros privados y protegidos de la clase cPaciente
+
 	
 };
 #endif
