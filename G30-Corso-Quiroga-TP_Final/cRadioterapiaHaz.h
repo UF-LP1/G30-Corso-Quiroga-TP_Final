@@ -16,7 +16,7 @@ public:
 	cRadioterapiaHaz(int gy, int cantSesiones);
 	cRadioterapiaHaz();
 	~cRadioterapiaHaz();
-	eTipoTerapia getTipoTerapia();
+	
 	void AplicarTerapia(cPaciente* paciente);
 };
 #endif

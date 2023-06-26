@@ -49,5 +49,6 @@ public:
 	
 	void listarPacientes();
 	
+	void listarOncologo();
 };
 #endif

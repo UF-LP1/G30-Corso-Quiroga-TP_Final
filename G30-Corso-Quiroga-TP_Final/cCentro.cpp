@@ -16,7 +16,7 @@ cCentro::~cCentro() {
 }
 
 void cCentro::agregarPaciente(cPaciente* paciente) {
-	this->listaPaciente->Insertar(paciente);
+	
 	try { this->listaPaciente->Insertar(paciente); }
 	catch (exception & e) {
 		cout << e.what() << endl;
@@ -32,7 +32,7 @@ void cCentro::eliminarPaciente(cPaciente* paciente){ //si encuentro la posicion 
 }
 
 void cCentro::agregarOncologo(cOncologo* oncologo) {
-	this->listaOncologo->Insertar(oncologo);
+	
 	try { this->listaOncologo->Insertar(oncologo); }
 	catch (exception & e) {
 		cout << e.what() << endl;
@@ -47,12 +47,13 @@ void cCentro::eliminarOncologo(cOncologo* oncologo){ //si encuentro la posicion 
 	}
 }
 
-cFicha* cCentro::crearFicha(cPaciente* paciente){
-	try {
-		int pos = listaPaciente->BuscarAtPos(paciente); //chequeo que el paciente este
-		if (pos == -1) {
-			throw runtime_error("El paciente no esta registrado en el centro.");
-		}
+cFicha* cCentro::crearFicha(cPaciente* paciente) {
+
+	int pos = listaPaciente->BuscarAtPos(paciente); //chequeo que el paciente este
+	if (pos == -1) {
+		throw runtime_error("El paciente no esta registrado en el centro.");
+	}
+	else {
 		cTerapia* terapia = NULL;
 		int i = rand() % listaOncologo->getCA();
 		cOncologo* oncologo = listaOncologo->Buscar(i);
@@ -67,22 +68,24 @@ cFicha* cCentro::crearFicha(cPaciente* paciente){
 
 		return ficha;
 	}
-	catch (const exception& e) {
-		cout << "Error al crear la ficha: " << e.what() << endl;
-		return nullptr;
-	}
-} 
+
+}
 
 
 
 cLista <cPaciente>* cCentro::buscarPacienteTyC(cTerapia* terapia, eUbicacion ubicacion) {
-	cLista <cPaciente>* ToR= new cLista <cPaciente> (this->listaPaciente->getCA());
+	cLista <cPaciente>* ToR = new cLista <cPaciente>(this->listaPaciente->getCA());
 	int i;
 	for (i = 0; i < this->listaPaciente->getCA(); i++) {
 		cPaciente* paciente = this->listaPaciente->Buscar(i);  //devuelve el paciente en la pos i
-		if (paciente->getficha()!= NULL && paciente->getficha()->getterapia()->getTipoTerapia() == terapia->getTipoTerapia()) {
-			if(paciente->getficha()->gettumor()->getubicacion() == ubicacion) {
-				ToR->Insertar(paciente);
+		if (paciente->getficha() != NULL && paciente->getficha()->getterapia()->getTipoTerapia() == terapia->getTipoTerapia()) {
+			if (paciente->getficha()->gettumor()->getubicacion() == ubicacion) {
+				try { ToR->Insertar(paciente); }
+				catch (exception& e) {
+					cout << e.what() << endl;
+				}
+
+
 			}
 		}
 
@@ -90,7 +93,7 @@ cLista <cPaciente>* cCentro::buscarPacienteTyC(cTerapia* terapia, eUbicacion ubi
 	return ToR;
 }
 
-void cCentro::listarPacientes(){ //verifico si el paciente tiene una ficha, si es así, puedo obtener el tumor y su ubicacion y listarlo con el resto de datos
+void cCentro::listarPacientes() { //verifico si el paciente tiene una ficha, si es así, puedo obtener el tumor y su ubicacion y listarlo con el resto de datos
 	int i;
 	for (i = 0; i < listaPaciente->getCA(); i++) {
 		cPaciente* paciente = listaPaciente->Buscar(i);
@@ -109,41 +112,53 @@ void cCentro::listarPacientes(){ //verifico si el paciente tiene una ficha, si e
 		cout << endl;
 	}
 }
-/*
-void cCentro::listarOncologos(){
-	int i;
+
+void cCentro::listarOncologo() {
+
+	//ARREGLAR!!!!!!!!!!!!!!!
+	/*int i;
 	for (i = 0; i < listaOncologo->getCA(); i++) {
 		cOncologo* oncologo = listaOncologo->Buscar(i);
 		cout << "Oncologo " << i + 1 << ":" << endl;
 		cout << "Nombre: " << oncologo->getnombre() << endl;
 		cout << "ID: " << oncologo->getID() << endl;
 		cout << endl;
-	}
+	}*/
 }
-*/
+
 
 
 void cCentro::agregarDosimetrista(cDosimetrista* dosimetrista) {
-	this->listaDosimetrista->Insertar(dosimetrista);
+
+	this->listaDosimetrista->operator+(dosimetrista);
+	/*
 	try { this->listaDosimetrista->Insertar(dosimetrista); }
 	catch (exception& e) {
 		cout << e.what() << endl;
-	}
+	}*/
 
 }
-void cCentro:: eliminarDosimetrista(cDosimetrista* dosimetrista) {
+void cCentro::eliminarDosimetrista(cDosimetrista* dosimetrista) {
+	int i = this->listaDosimetrista->BuscarAtPos(dosimetrista);
+	this->listaDosimetrista->operator-(dosimetrista); //ARREGLAR!!!!!!!!!!!!!!!!!
+	/*
 	int pos = listaDosimetrista->BuscarAtPos(dosimetrista);
 	if (pos != -1) {
 		cDosimetrista* eliminarDosimetrista = listaDosimetrista->QuitarPos(pos);
 		delete eliminarDosimetrista;
-	}
+	}*/
 
 }
 
-void cCentro::tratarPaciente(cPaciente* paciente){
+void cCentro::tratarPaciente(cPaciente* paciente) {
 	cFicha* ficha = paciente->getficha();
-	if (ficha->getsesion() < ficha->getterapia()->getcantsesion()) { 
-		ficha->getterapia()->AplicarTerapia(paciente);
-		ficha->setcantsesion(ficha->getsesion()+1);
+	if (ficha->getsesion() < ficha->getterapia()->getcantsesion()) {
+		try {
+			ficha->getterapia()->AplicarTerapia(paciente);
+			ficha->setcantsesion(ficha->getsesion() + 1);
+		}
+		catch (exception& e) {
+			cout << e.what() << endl;
+		}
 	}
 }

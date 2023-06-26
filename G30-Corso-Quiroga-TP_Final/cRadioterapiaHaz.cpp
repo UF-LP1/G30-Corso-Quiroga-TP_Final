@@ -1,25 +1,26 @@
 #include "cRadioterapiaHaz.h"
 
-cRadioterapiaHaz::cRadioterapiaHaz(int gy, int cantSesiones): cTerapia (gy, cantSesiones){
+cRadioterapiaHaz::cRadioterapiaHaz(int gy, int cantSesiones) : cTerapia(gy, cantSesiones) {
 	this->gy = gy;
 	this->cantSesiones = cantSesiones;
 }
 
-cRadioterapiaHaz::cRadioterapiaHaz(): cTerapia(gy, cantSesiones) {
+cRadioterapiaHaz::cRadioterapiaHaz() : cTerapia(gy, cantSesiones) {
 	this->gy = 20;
 	this->cantSesiones = 5;
 }
 
-cRadioterapiaHaz::~cRadioterapiaHaz(){}
 
-eTipoTerapia cRadioterapiaHaz::getTipoTerapia(){ return RadioterapiaHaz; } 
 
-void cRadioterapiaHaz:: AplicarTerapia(cPaciente* paciente){
+cRadioterapiaHaz::~cRadioterapiaHaz() {}
 
-	int radiacion = gy/ cantSesiones;
+
+void cRadioterapiaHaz::AplicarTerapia(cPaciente* paciente) {
+
+	int radiacion = gy / cantSesiones;
 	cFicha* ficha = paciente->getficha();
 	if (ficha->getacumRadiacion() + radiacion >= 100) {
-		throw new exception ("No se puede continuar con la terapia");
+		throw new exception("No se puede continuar con la terapia");
 	}
 	ficha->aplicarRadiacion(radiacion);
 }

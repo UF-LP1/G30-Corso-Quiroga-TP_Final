@@ -22,33 +22,51 @@ int cDosimetrista::calcularDosisTotal() {
 cTerapia* cDosimetrista::determinarTipoTerapia(cLista<cTumor>* tumores) {
 	int i = 0;
 	cTerapia* tipoTerapia = NULL;
+	eTipoTerapia etipoTerapia;
 	if (tumores->getCA() == 1) {
 		cTumor* tumor = tumores->Buscar(0);
-	switch (tumor->getubicacion()) {
+		switch (tumor->getubicacion()) {
 		case (cabeza, cuello, mama, utero, ojo):
-			 i = rand() % 0 + 1;
-			 if(i == 0)
-				 tipoTerapia = new cRadioterapiaHaz();  
-			 else
-				 tipoTerapia = new cBraquiterapia();
-			 break;
+			i = rand() % 0 + 1;
+			if (i == 0) {
+				tipoTerapia = new cRadioterapiaHaz();
+				etipoTerapia = radioterapiaHaz;
+			}
+
+			else {
+				tipoTerapia = new cBraquiterapia();
+				etipoTerapia = braquiterapia;
+			}
+
+			break;
 		case (tiroides, prostata):
 			i = rand() % 0 + 1;
-			if (i == 0)
+			if (i == 0) {
 				tipoTerapia = new cRadioterapiaHaz();
-			else
+				etipoTerapia = radioterapiaHaz;
+			}
+
+			else {
 				tipoTerapia = new cRadioterapiaSistemica();
+				etipoTerapia = radioterapiaSistemica;
+			}
+
 			break;
 		case (pulmon, intestino):
+		{
 			tipoTerapia = new cRadioterapiaHaz();
-			break;
-	}
+			etipoTerapia = radioterapiaHaz;
+		}
+
+		break;
+		}
 
 	}
 	else {
-		tipoTerapia = new cRadioterapiaHaz(); 
+		tipoTerapia = new cRadioterapiaHaz();
+		etipoTerapia = radioterapiaHaz;
 	}
-	
+
 	return tipoTerapia;
 }
 

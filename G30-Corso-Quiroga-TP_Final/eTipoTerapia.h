@@ -4,4 +4,4 @@
 
 using namespace std;
 
-enum eTipoTerapia { RadioterapiaHaz = 1, Braquiterapia = 2, RadioterapiaSistemica = 3 };
+enum eTipoTerapia { radioterapiaHaz = 1, braquiterapia = 2, radioterapiaSistemica = 3 };

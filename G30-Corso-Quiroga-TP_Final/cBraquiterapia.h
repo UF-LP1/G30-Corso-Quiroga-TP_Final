@@ -15,7 +15,7 @@ public:
 	cBraquiterapia(int gy, int cantSesiones);
 	cBraquiterapia();
 	~cBraquiterapia();
-	eTipoTerapia getTipoTerapia();
+	
 	void AplicarTerapia(cPaciente* paciente);
 
 };
