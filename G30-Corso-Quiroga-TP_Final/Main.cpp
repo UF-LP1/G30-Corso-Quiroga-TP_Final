@@ -12,7 +12,6 @@
 #include "cRadioterapiaHaz.h"
 #include "cRadioterapiaSistemica.h"
 
-
 using namespace std;
 
 int main() {
