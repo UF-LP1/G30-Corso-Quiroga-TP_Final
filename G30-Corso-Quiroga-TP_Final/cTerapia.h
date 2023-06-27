@@ -25,6 +25,8 @@ public:
 
 	eTipoTerapia getTipoTerapia(eTipoTerapia tipoTerapia);
 	virtual void AplicarTerapia(cPaciente* paciente) = 0;
+	// = 0; estoy indicando que cTerapia no tiene una implementacion para este metodo. Todas sus hijas deben implementarlo particularmente
+
 
 	int getcantsesion() { return this->cantsesion; }
 	void setcantsesion(int cantsesiones);

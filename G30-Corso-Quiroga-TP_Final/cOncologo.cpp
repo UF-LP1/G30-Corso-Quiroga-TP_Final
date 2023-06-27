@@ -8,7 +8,49 @@ cOncologo::cOncologo(string nombre, int ID) {
 cOncologo::~cOncologo() {}
 
 int cOncologo::suministrarDosis() { 
-	int t= terapia->getTipoTerapia();
+	eTipoTerapia t;
+
+	if (t == eTipoTerapia::radioterapiaHaz) {
+		t = terapia->getTipoTerapia(eTipoTerapia::radioterapiaHaz);
+	}
+	else if (t == eTipoTerapia::braquiterapia) {
+		t = terapia->getTipoTerapia(eTipoTerapia::braquiterapia);
+	}
+	else if (t == eTipoTerapia::radioterapiaSistemica) {
+		t = terapia->getTipoTerapia(eTipoTerapia::radioterapiaSistemica);
+	} // Obtengo el tipo de terapia
+
+	int dosis = 0, aux = 0;
+
+	if (t == eTipoTerapia::radioterapiaHaz) { // Si el tipo de terapia es radioterapiaHaz
+		aux = rand() % 2; // Genero un número aleatorio entre 0 y 1
+		if (aux == 0)
+			dosis = 1; // Asigno dosis de 1 Gy
+		else
+			dosis = 2; // Asigno dosis de 2 Gy
+	}
+	else if (t == eTipoTerapia::braquiterapia) { // Si el tipo de terapia es braquiterapia
+		aux = rand() % 3; // Genero un número aleatorio entre 0 y 2
+		if (aux == 0)
+			dosis = 4; // Asigno dosis de 4 Gy
+		else if (aux == 1)
+			dosis = 6; // Asigno dosis de 6 Gy
+		else
+			dosis = 8; // Asigno dosis de 8 Gy
+	}
+	else if (t == eTipoTerapia::radioterapiaSistemica) { // Si el tipo de terapia es radioterapiaSistemica
+		aux = rand() % 3; // Genero un número aleatorio entre 0 y 2
+		if (aux == 0)
+			dosis = 2; // Asigno dosis de 2 Gy
+		else if (aux == 1)
+			dosis = 4; // Asigno dosis de 4 Gy
+		else
+			dosis = 6; // Asigno dosis de 6 Gy
+	}
+	return dosis; // Devuelvo la dosis calculada
+	/*
+	int t= terapia
+		->getTipoTerapia();
 	int dosis = 0, aux = 0;
 	aux = rand() % 0 + 1;
 	if (t == 1) {// 1 a 2 Gy
@@ -32,9 +74,10 @@ int cOncologo::suministrarDosis() {
 		
 	}
 	return dosis;
+	*/
 } 
 /*
-void cOncologo::frecuencia() { //FALTA HACER ESTO
+void cOncologo::frecuencia() { /
 	
 	int dosisTotal = this->dosimetrista->calcularDosisTotal();
 	int dosis = this->suministrarDosis();
@@ -53,7 +96,7 @@ cLista<cTumor>* cOncologo::encontrarTumores(cPaciente* paciente) {
 
 	}
 
-	i = rand() % 0 + 3;
+	i = rand() % 3;
 	cLista <cTumor>* ToR = new cLista <cTumor>(i);
 	if (i > 0) {
 		int j;

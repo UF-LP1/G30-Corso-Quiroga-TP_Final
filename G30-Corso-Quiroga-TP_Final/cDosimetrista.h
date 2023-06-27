@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "cTumor.h"
+#include "cLista.h"
 #include "cTerapia.h"
 #include "cRadioterapiaHaz.h"
 #include "cBraquiterapia.h"

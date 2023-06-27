@@ -36,6 +36,14 @@ public:
 	void operator-(T1* p) { Eliminar(p); };
 	friend ostream& operator<<(ostream& out, cLista<T1>& Lista);
 
+	int operator==(T1* elemento) const {
+		for (int i = 0; i < ca; i++) {
+			if (*lista[i] == *elemento) {
+				return i;
+			}
+		}
+		return -1;
+	}
 
 	T1* operator[](unsigned int pos)
 	{
