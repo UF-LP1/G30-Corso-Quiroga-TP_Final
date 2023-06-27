@@ -185,17 +185,16 @@ void cCentro::operator-(cDosimetrista* dosimetrista) {
 }
 */
 void cCentro::agregarDosimetrista(cDosimetrista* dosimetrista) {
-	//this->listaDosimetrista + dosimetrista;
-	
+	*listaDosimetrista + (dosimetrista);
+	/*
 	try { this->listaDosimetrista->Insertar(dosimetrista); }
 	catch (exception& e) {
 		cout << e.what() << endl;
 	}
-
+	*/
 }
 void cCentro::eliminarDosimetrista(cDosimetrista* dosimetrista) {
-	int i = this->listaDosimetrista->BuscarAtPos(dosimetrista);
-	this->listaDosimetrista->operator-(dosimetrista); //ARREGLAR!!!!!!!!!!!!!!!!!
+	*listaDosimetrista - (dosimetrista);
 	/*
 	int pos = listaDosimetrista->BuscarAtPos(dosimetrista);
 	if (pos != -1) {
