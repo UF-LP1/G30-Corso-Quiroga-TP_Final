@@ -16,11 +16,13 @@ cCentro::~cCentro() {
 }
 
 void cCentro::agregarPaciente(cPaciente* paciente) {
-	
+	*listaPaciente + (paciente);
+	/*
 	try { this->listaPaciente->Insertar(paciente); }
 	catch (exception & e) {
 		cout << e.what() << endl;
 	} 
+	*/
 }
 
 void cCentro::eliminarPaciente(cPaciente* paciente){ //si encuentro la posicion del paciente en la lista lo elimino
@@ -166,7 +168,7 @@ void cCentro::listarOncologo() {
 		cout << endl;
 	}*/
 }
-
+/*
 void cCentro::operator+(cDosimetrista* dosimetrista){
 	if ((*listaDosimetrista) == dosimetrista) {
 		throw runtime_error("El dosimetrista ya existe en la lista."); //uso el runtime_error para indicar errores en tiempo de ejecución
@@ -181,14 +183,14 @@ void cCentro::operator-(cDosimetrista* dosimetrista) {
 		delete dosimetrista;
 	}
 }
-
+*/
 void cCentro::agregarDosimetrista(cDosimetrista* dosimetrista) {
-	this->listaDosimetrista->operator+(dosimetrista);
-	/*
+	//this->listaDosimetrista + dosimetrista;
+	
 	try { this->listaDosimetrista->Insertar(dosimetrista); }
 	catch (exception& e) {
 		cout << e.what() << endl;
-	}*/
+	}
 
 }
 void cCentro::eliminarDosimetrista(cDosimetrista* dosimetrista) {

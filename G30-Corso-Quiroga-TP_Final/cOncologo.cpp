@@ -75,7 +75,15 @@ int cOncologo::suministrarDosis() {
 	}
 	return dosis;
 	*/
-} 
+}
+string cOncologo::to_string(){		
+		string result = "Paciente ";
+		result += this->nombre;
+		result += ", con ID: ";
+		return result;
+}
+
+
 /*
 void cOncologo::frecuencia() { /
 	

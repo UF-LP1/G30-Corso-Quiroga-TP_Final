@@ -28,6 +28,7 @@ public:
 	~cOncologo();
 	int suministrarDosis();  
 	//void frecuencia(); 
+	string to_string();
 
 	cLista <cTumor>* encontrarTumores(cPaciente* paciente);
 	string getnombre() { return this->nombre; }

@@ -41,6 +41,19 @@ void cFicha::setterapia(cTerapia* terapia)
 	return;
 }
 
+string cFicha::to_string(){
+	string tratamiento;
+	if (dynamic_cast<cBraquiterapia*>(this->terapia) != nullptr)
+		tratamiento = "braquiterapia";
+	else if (dynamic_cast<cRadioterapiaHaz*>(this->terapia) != nullptr)
+		tratamiento = "radioterapia de haz externo";
+	else if (dynamic_cast<cRadioterapiaSistemica*>(this->terapia) != nullptr)
+		tratamiento = "radioterapia sistemica";
+	string paciente = this->paciente->to_string();
+	string oncologo = this->oncologo->to_string();
+	return "Paciente: " + paciente + "Oncologo: " + oncologo + "Tratamiento: " + tratamiento;
+}
+
 void cFicha::setpaciente(cPaciente* paciente)
 {
 	this->paciente = paciente;
@@ -52,13 +65,13 @@ void cFicha::setoncologo(cOncologo* oncologo)
 	this->oncologo = oncologo;
 	return;
 }
-
+/*
 void cFicha::settumor(cTumor* tumor)
 {
 	this->tumor = tumor;
 	return;
 }
-
+*/
 void cFicha:: aplicarRadiacion(int radiacion) {
 	this->acumRadiacion = this->acumRadiacion + radiacion;
 	int i;

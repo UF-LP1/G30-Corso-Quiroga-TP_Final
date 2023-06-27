@@ -25,7 +25,7 @@ private:
 	cTerapia* terapia; 
 	cPaciente* paciente; 
 	cOncologo* oncologo; 
-	cTumor* tumor; //BORRAR!!!!!!!
+	//cTumor* tumor; //BORRAR!!!!!!!
 	cLista <cTumor>* listaTumor;
 
 public:
@@ -44,6 +44,8 @@ public:
 	
 	cTerapia* getterapia() { return this->terapia; }
 	void setterapia(cTerapia* terapia);
+
+	string to_string();
 
 	cPaciente* getpaciente() { return this->paciente; }
 	void setpaciente(cPaciente* paciente);
