@@ -19,13 +19,13 @@ class cFicha
 {
 private:
 	time_t fecha;
-	int acumRadiacion;
+	float acumRadiacion;
 	int sesionPracticada;
 	int cantsesion;
 	cTerapia* terapia; 
 	cPaciente* paciente; 
 	cOncologo* oncologo; 
-	//cTumor* tumor; //BORRAR!!!!!!!
+	cTumor* tumor;
 	cLista <cTumor>* listaTumor;
 
 public:
@@ -34,7 +34,7 @@ public:
 	~cFicha();
 
 	int getacumRadiacion() { return this->acumRadiacion; }
-	void setacumRadiacion(int acumRadiacion);
+	void setacumRadiacion(float acumRadiacion);
 
 	int getsesion() { return this->sesionPracticada; }
 	void setsesion(int sesionesPracticadas);
@@ -56,7 +56,7 @@ public:
 	cTumor* gettumor() { return this->tumor; }
 	void settumor(cTumor* tumor);
 	
-	void aplicarRadiacion(int radiacion);
+	void aplicarRadiacion(float radiacion);
 
 	int getcantTumor();
 	void agregarTumor(cTumor* tumor);

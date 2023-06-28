@@ -16,8 +16,12 @@ cRadioterapiaHaz::~cRadioterapiaHaz() {}
 
 
 void cRadioterapiaHaz::AplicarTerapia(cPaciente* paciente) {
+	
+	
+	gy = rand() % 1 + 10; //Calculo la dosis total que recibe el paciente correspondiente a este tipo de terapia
+	
+	float radiacion = gy / cantSesiones;
 
-	int radiacion = gy / cantSesiones;
 	cFicha* ficha = paciente->getficha();
 	if (ficha->getacumRadiacion() + radiacion >= 100) {
 		throw new exception("No se puede continuar con la terapia");

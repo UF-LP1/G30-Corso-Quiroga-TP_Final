@@ -15,9 +15,11 @@ cBraquiterapia::~cBraquiterapia() {}
 
 void cBraquiterapia::AplicarTerapia(cPaciente* paciente) {
 
-	int radiacion = gy / cantSesiones;
+	gy = rand() % 100 + 160;  //Calculo la dosis total que recibe el paciente correspondiente a este tipo de terapia
+
+	float radiacion = gy / cantSesiones;
 	cFicha* ficha = paciente->getficha();
-	if (ficha->getacumRadiacion() + radiacion >= 100) {
+	if (ficha->getacumRadiacion() + radiacion >= 150) {
 		throw new exception("No se puede continuar con la terapia");
 	}
 	ficha->aplicarRadiacion(radiacion);
