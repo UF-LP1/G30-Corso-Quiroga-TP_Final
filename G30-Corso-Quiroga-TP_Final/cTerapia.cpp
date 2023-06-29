@@ -5,9 +5,7 @@ cTerapia::cTerapia(int gy, int cantSesiones) {
 	this->cantSesiones = cantSesiones;
 
 }
-cTerapia::cTerapia() {
 
-}
 
 cTerapia::~cTerapia() {}
 void cTerapia::setcantsesion(int cantsesiones)

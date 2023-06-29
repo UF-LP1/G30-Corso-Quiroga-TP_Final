@@ -17,7 +17,7 @@ cFicha::~cFicha() {
 	delete listaTumor;
 }
 
-void cFicha::setacumRadiacion(int acumRadiacion)
+void cFicha::setacumRadiacion(float acumRadiacion)
 {
 	this->acumRadiacion = acumRadiacion;
 	return;
@@ -65,14 +65,14 @@ void cFicha::setoncologo(cOncologo* oncologo)
 	this->oncologo = oncologo;
 	return;
 }
-/*
+
 void cFicha::settumor(cTumor* tumor)
 {
 	this->tumor = tumor;
 	return;
 }
-*/
-void cFicha:: aplicarRadiacion(int radiacion) {
+
+void cFicha:: aplicarRadiacion(float radiacion) {
 	this->acumRadiacion = this->acumRadiacion + radiacion;
 	int i;
 	for (i = 0; i < this->listaTumor->getCA(); i++) {
