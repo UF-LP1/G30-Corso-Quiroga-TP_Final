@@ -97,6 +97,19 @@ void cOncologo::frecuencia() { /
 }*/
 
 cLista<cTumor>* cOncologo::encontrarTumores(cPaciente* paciente) {
+	int i;
+	int k = rand() % 3;
+	cLista <cTumor>* ToR = new cLista <cTumor>(k);
+	for (i = 0; i < k; i++) {
+		cTumor* _tumor = tumores->Buscar(i);
+		ToR->Insertar(_tumor);
+
+	}
+	return ToR;
+
+}
+/*
+cLista<cTumor>* cOncologo::encontrarTumores(cPaciente* paciente) {
 	cLista<cTumor>* listaClonada = new cLista<cTumor>(cOncologo::tumores->getCA());
 	int i;
 	for (i = 0; i < cOncologo::tumores->getCA(); i++) {
@@ -107,13 +120,17 @@ cLista<cTumor>* cOncologo::encontrarTumores(cPaciente* paciente) {
 
 	}
 
-	i = rand() % 3;
+	i = rand() % 1 + 3;
+
 	cLista <cTumor>* ToR = new cLista <cTumor>(i);
 	if (i > 0) {
 		int j;
 		for (j = 0; j < i; j++) {
 			int k = rand() % listaClonada->getCA();
-			try { ToR->Insertar(listaClonada->Buscar(k)); }
+			cout << "K es: " << k << endl;
+			try { 
+				ToR->Insertar(listaClonada->Buscar(k)); 
+			}
 			catch (exception& e) {
 				cout << e.what() << endl;
 			}
@@ -123,13 +140,14 @@ cLista<cTumor>* cOncologo::encontrarTumores(cPaciente* paciente) {
 			}
 
 		}
+		
 
 	}
 	//delete listaClonada;
 	return ToR;
 	
 
-}
+}*/
 
 void cOncologo::setnombre(string nombre)
 {

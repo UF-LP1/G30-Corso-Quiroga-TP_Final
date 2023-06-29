@@ -21,10 +21,13 @@ int cDosimetrista::calcularDosisTotal() {
 
 cTerapia* cDosimetrista::determinarTipoTerapia(cLista<cTumor>* tumores) {
 	int i = 0;
+	
 	cTerapia* tipoTerapia = NULL;
 	eTipoTerapia etipoTerapia;
+	
 	if (tumores->getCA() == 1) {
 		cTumor* tumor = tumores->Buscar(0);
+		
 		switch (tumor->getubicacion()) {
 		case (cabeza, cuello, mama, utero, ojo):
 			i = rand() % 0 + 1;
@@ -63,9 +66,11 @@ cTerapia* cDosimetrista::determinarTipoTerapia(cLista<cTumor>* tumores) {
 
 	}
 	else {
+		
 		tipoTerapia = new cRadioterapiaHaz();
 		etipoTerapia = radioterapiaHaz;
 	}
+	
 
 	return tipoTerapia;
 }

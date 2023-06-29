@@ -9,10 +9,10 @@ cCentro::cCentro() {
 
 }
 cCentro::~cCentro() {
-
+	
 	delete listaDosimetrista;
 	delete listaPaciente;
-	delete listaPaciente;
+	delete listaOncologo;
 }
 
 void cCentro::agregarPaciente(cPaciente* paciente) {
@@ -61,11 +61,12 @@ cFicha* cCentro::crearFicha(cPaciente* paciente) {
 		cOncologo* oncologo = listaOncologo->Buscar(i);
 		cLista<cTumor>* tumores = oncologo->encontrarTumores(paciente);
 		if (tumores->getCA() > 0) {
+			
 			i = rand() % listaDosimetrista->getCA();
 			cDosimetrista* dosimetrista = listaDosimetrista->Buscar(i);
 			terapia = dosimetrista->determinarTipoTerapia(tumores);
 		}
-
+		
 		cFicha* ficha = new cFicha(terapia, paciente, oncologo, 12 / 12 / 20);
 		ficha->setFichaTumores(tumores);
 		paciente->setficha(ficha);
@@ -73,7 +74,7 @@ cFicha* cCentro::crearFicha(cPaciente* paciente) {
 		return ficha;
 	}
 	
-	//cout << "pos es : " << pos << endl;
+	
 
 }
 
@@ -183,16 +184,18 @@ cLista <cPaciente>* cCentro::buscarPacienteTyC(cTerapia* terapia, eUbicacion ubi
 }
 
 void cCentro::listarPacientes() { //verifico si el paciente tiene una ficha, si es as�, puedo obtener el tumor y su ubicacion y listarlo con el resto de datos
+	cout << "LISTADO DE PACIENTES DEL CENTRO: " << endl << endl;
 	int i;
 	for (i = 0; i < listaPaciente->getCA(); i++) {
 		cPaciente* paciente = listaPaciente->Buscar(i);
 		cOncologo* oncologo = paciente->getficha()->getoncologo();
-		cout << "Paciente" << i + 1 << ":" << endl;
-		cout << "Nombre:" << paciente->getnombre() << endl;
-		cout << "DNI:" << paciente->getDNI() << endl;
-		cout << "Oncologo " << i + 1 << ":" << endl;
-		cout << "Nombre Oncologo: " << oncologo->getnombre() << endl;
-		cout << "ID Oncologo: " << oncologo->getID() << endl;
+		cout << "Paciente " << i + 1 << ":" << endl;
+		cout << endl;
+		cout << "- Nombre: " << paciente->getnombre() << endl;
+		cout << "- DNI: " << paciente->getDNI() << endl;
+		//cout << "Oncologo " << i + 1 << ":" << endl;
+		cout << "- Nombre Oncologo: " << oncologo->getnombre() << endl;
+		cout << "- ID Oncologo : " << oncologo->getID() << endl;
 		cout << endl;
 		if (paciente->getficha() != NULL) { //si no tiene una ficha entonces no imprime estos ultimos datos
 			cLista<cTumor>* tumores = paciente->getficha()->getTumores();
@@ -248,8 +251,8 @@ void cCentro::eliminarDosimetrista(cDosimetrista* dosimetrista) {
 
 void cCentro::tratarPaciente(cPaciente* paciente) {
 	cFicha* ficha = paciente->getficha();
-	if (ficha->getcantTumor() > 0 && !paciente->getCurado()) {
-
+	if (ficha->getcantTumor() > 0 && !paciente->getCurado() && ficha->getterapia() != NULL) {
+		
 		int radiacion;
 		radiacion = ficha->getterapia()->AplicarTerapia(ficha->getTumores());
 
