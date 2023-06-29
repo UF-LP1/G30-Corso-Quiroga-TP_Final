@@ -1,14 +1,14 @@
 #ifndef _CRADIOTERAPIASISTEMICA_H
 #define _CRADIOTERAPIASISTEMICA_H
 
-class cTerapia;
-class cPaciente;
+
 
 #include <iostream>
 #include <string>
 #include "cTerapia.h"
 
-using namespace std;
+class cTerapia;
+
 
 class cRadioterapiaSistemica : public cTerapia
 {
@@ -17,6 +17,6 @@ public:
 	cRadioterapiaSistemica();
 	~cRadioterapiaSistemica();
 	
-	void AplicarTerapia(cPaciente* paciente);
+	int AplicarTerapia();
 };
 #endif

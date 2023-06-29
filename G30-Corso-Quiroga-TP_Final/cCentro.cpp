@@ -207,9 +207,37 @@ void cCentro::eliminarDosimetrista(cDosimetrista* dosimetrista) {
 void cCentro::tratarPaciente(cPaciente* paciente) {
 	cFicha* ficha = paciente->getficha();
 	if (ficha->getsesion() < ficha->getterapia()->getcantsesion()) {
+
 		try {
-			ficha->getterapia()->AplicarTerapia(paciente);
-			ficha->setcantsesion(ficha->getsesion() + 1);
+			int radiacion;
+			radiacion = ficha->getterapia()->AplicarTerapia();
+
+
+			if (dynamic_cast<cRadioterapiaHaz*>(ficha->getterapia()) != nullptr) {
+				if (ficha->getacumRadiacion() + radiacion > 10)
+					throw new exception("No se puede continuar con la terapia");
+
+
+			}
+
+
+			if (dynamic_cast<cBraquiterapia*>(ficha->getterapia()) != nullptr) {
+				if (ficha->getacumRadiacion() + radiacion > 160)
+					throw new exception("No se puede continuar con la terapia");
+
+
+			}
+
+			if (dynamic_cast<cRadioterapiaSistemica*>(ficha->getterapia()) != nullptr) {
+				if (ficha->getacumRadiacion() + radiacion > 40)
+					throw new exception("No se puede continuar con la terapia");
+
+
+			}
+			ficha->aplicarRadiacion(radiacion);
+			ficha->setcantsesion(ficha->getsesion());
+
+
 		}
 		catch (exception& e) {
 			cout << e.what() << endl;

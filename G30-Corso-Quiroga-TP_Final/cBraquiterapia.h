@@ -1,14 +1,14 @@
 #ifndef _CBRAQUITERAPIA_H
 #define _CBRAQUITERAPIA_H
 
-class cTerapia;
-class cPaciente;
+
 
 #include <iostream>
 #include <string>
 #include "cTerapia.h"
 
-using namespace std;
+class cTerapia;
+
 
 class cBraquiterapia: public cTerapia {
 public:
@@ -16,7 +16,7 @@ public:
 	cBraquiterapia();
 	~cBraquiterapia();
 	
-	void AplicarTerapia(cPaciente* paciente);
+	int AplicarTerapia();
 
 };
 #endif
