@@ -2,10 +2,9 @@
 
 cTerapia::cTerapia(int gy, int cantSesiones) {
 	this->gy = gy;
-	this->cantSesiones = cantSesiones;
+	this->cantsesion = cantSesiones;
 
 }
-
 
 cTerapia::~cTerapia() {}
 void cTerapia::setcantsesion(int cantsesiones)
@@ -20,6 +19,7 @@ int getTerapia(cDosimetrista* dosimetrista) {
 	//return tipoterapia;
 }//COREGIR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
+/*
 eTipoTerapia cTerapia::getTipoTerapia(eTipoTerapia tipoTerapia) {
 
 	if (tipoTerapia == 1)
@@ -29,4 +29,4 @@ eTipoTerapia cTerapia::getTipoTerapia(eTipoTerapia tipoTerapia) {
 	else if (tipoTerapia == 3)
 		return this->terapia = radioterapiaSistemica;
 
-}
+}*/

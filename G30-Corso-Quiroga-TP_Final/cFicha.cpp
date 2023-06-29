@@ -1,6 +1,6 @@
 #include "cFicha.h"
 
-cFicha::cFicha( cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo, time_t fecha) {
+cFicha::cFicha(cTerapia* terapia, cPaciente* paciente, cOncologo* oncologo, time_t fecha) {
 	this->acumRadiacion = 0;
 	this->sesionPracticada = 0;
 	this->oncologo = oncologo;
@@ -41,7 +41,7 @@ void cFicha::setterapia(cTerapia* terapia)
 	return;
 }
 
-string cFicha::to_string(){
+string cFicha::to_string() {
 	string tratamiento;
 	if (dynamic_cast<cBraquiterapia*>(this->terapia) != nullptr)
 		tratamiento = "braquiterapia";
@@ -68,11 +68,11 @@ void cFicha::setoncologo(cOncologo* oncologo)
 
 void cFicha::settumor(cTumor* tumor)
 {
-	this->tumor = tumor;
+	this->listaTumor->Insertar(tumor);
 	return;
 }
 
-void cFicha:: aplicarRadiacion(float radiacion) {
+void cFicha::aplicarRadiacion(float radiacion) {
 	this->acumRadiacion = this->acumRadiacion + radiacion;
 	int i;
 	for (i = 0; i < this->listaTumor->getCA(); i++) {
@@ -88,7 +88,7 @@ int cFicha::getcantTumor() {
 }
 
 void cFicha::agregarTumor(cTumor* tumor) {
-	
+
 	try { this->listaTumor->Insertar(tumor); }
 	catch (exception& e) {
 		cout << e.what() << endl;
@@ -112,4 +112,27 @@ cTumor* cFicha::quitarTumor(cTumor* tumor) { //verifico si el tumor en la pos ac
 		}
 	}
 	return nullptr; //retorno nullptr si no encontre el tumor en la lista
+}
+
+bool cFicha::encontrarRadicionLimite() {
+	int i;
+	bool toR = false;
+	for (i = 0; i < this->listaTumor->getCA(); i++) {
+		cTumor* _tumor = listaTumor->Buscar(i);
+		int dosis = 0;
+		if (dynamic_cast<cBraquiterapia*>(this->getterapia()) != nullptr)
+			dosis = 160;
+		if (dynamic_cast<cRadioterapiaHaz*>(this->getterapia()) != nullptr)
+			dosis = 10;
+		if (dynamic_cast<cRadioterapiaSistemica*>(this->getterapia()) != nullptr)
+			dosis = 100;
+
+		if (_tumor->getacumradiacion() / dosis > 0.95) {
+			toR = true;
+			break;
+		}
+
+		return toR;
+
+	}
 }

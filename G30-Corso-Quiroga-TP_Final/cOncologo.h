@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _CONCOLOGO_H
 #define _CONCOLOGO_H
 #include <iostream>
@@ -15,7 +14,7 @@ class cPaciente;
 class cTerapia;
 class cDosimetrista;
 
-class cOncologo{
+class cOncologo {
 
 private:
 	string nombre;
@@ -26,7 +25,7 @@ public:
 	static cLista<cTumor>* tumores;
 	cOncologo(string nombre, int ID);
 	~cOncologo();
-	int suministrarDosis();  
+	int suministrarDosis();
 	//void frecuencia(); 
 	string to_string();
 
@@ -35,5 +34,6 @@ public:
 	void setnombre(string nombre);
 	int getID() { return this->ID; }
 	void setID(int ID);
+	void darAlta(cPaciente* paciente);
 };
 #endif

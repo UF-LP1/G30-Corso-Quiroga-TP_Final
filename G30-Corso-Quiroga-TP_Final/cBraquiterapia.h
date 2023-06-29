@@ -4,20 +4,20 @@
 class cTerapia;
 class cPaciente;
 
-
 #include <iostream>
 #include <string>
 #include "cTerapia.h"
 
 using namespace std;
 
-class cBraquiterapia: public cTerapia {
+class cBraquiterapia : public cTerapia {
 public:
 	cBraquiterapia(int gy, int cantSesiones);
 	cBraquiterapia();
 	~cBraquiterapia();
-	
-	int AplicarTerapia();
+
+	int AplicarTerapia(cLista <cTumor>* listaTumor);
+	int getTipoTerapia();
 
 };
 #endif

@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _CFICHA_H
 #define _CFICHA_H
 #include <iostream>
@@ -8,6 +7,7 @@
 #include "cPaciente.h"
 #include "cOncologo.h"
 #include "cTumor.h"
+#include "cLista.h"
 
 using namespace std;
 class cPaciente;
@@ -22,10 +22,9 @@ private:
 	float acumRadiacion;
 	int sesionPracticada;
 	int cantsesion;
-	cTerapia* terapia; 
-	cPaciente* paciente; 
-	cOncologo* oncologo; 
-	cTumor* tumor;
+	cTerapia* terapia;
+	cPaciente* paciente;
+	cOncologo* oncologo;
 	cLista <cTumor>* listaTumor;
 
 public:
@@ -41,9 +40,10 @@ public:
 
 	int getcantsesion() { return this->cantsesion; }
 	void setcantsesion(int cantsesiones);
-	
+
 	cTerapia* getterapia() { return this->terapia; }
 	void setterapia(cTerapia* terapia);
+
 
 	string to_string();
 
@@ -53,14 +53,15 @@ public:
 	cOncologo* getoncologo() { return this->oncologo; }
 	void setoncologo(cOncologo* oncologo);
 
-	cTumor* gettumor() { return this->tumor; }
+	cLista <cTumor>* getTumores() { return this->listaTumor; }
 	void settumor(cTumor* tumor);
-	
+
 	void aplicarRadiacion(float radiacion);
 
 	int getcantTumor();
 	void agregarTumor(cTumor* tumor);
 	void eliminarTumor(cTumor* tumor);
 	cTumor* quitarTumor(cTumor* tumor);
+	bool encontrarRadicionLimite();
 };
 #endif

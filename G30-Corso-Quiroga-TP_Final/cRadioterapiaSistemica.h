@@ -4,7 +4,6 @@
 class cTerapia;
 class cPaciente;
 
-
 #include <iostream>
 #include <string>
 #include "cTerapia.h"
@@ -17,7 +16,8 @@ public:
 	cRadioterapiaSistemica(int gy, int cantSesiones);
 	cRadioterapiaSistemica();
 	~cRadioterapiaSistemica();
-	
-	int AplicarTerapia();
+
+	int AplicarTerapia(cLista <cTumor>* listaTumor);
+	int getTipoTerapia();
 };
 #endif

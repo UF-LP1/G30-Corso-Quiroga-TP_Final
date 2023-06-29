@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _CCENTRO_H
 #define _CCENTRO_H
 #include <iostream>
@@ -22,7 +21,7 @@ private:
 	const int maxPaciente = 100;
 	const int maxOncologo = 100;
 	const int maxDosimetrista = 100;
-	
+
 	cLista <cPaciente>* listaPaciente;
 	cLista <cOncologo>* listaOncologo;
 	cLista<cDosimetrista>* listaDosimetrista;
@@ -31,7 +30,7 @@ public:
 
 	cCentro();
 	~cCentro();
-	
+
 	void agregarPaciente(cPaciente* paciente);
 	void eliminarPaciente(cPaciente* paciente);
 
@@ -46,9 +45,12 @@ public:
 	cFicha* crearFicha(cPaciente* paciente);
 
 	cLista <cPaciente>* buscarPacienteTyC(cTerapia* terapia, eUbicacion ubicacion);
-	
+	cLista <cPaciente>* buscarPacienteLimite();
+
+
 	void listarPacientes();
 	void listarOncologo();
+	void darAlta(cFicha* fichaPaciente);
 
 	void operator+(cDosimetrista* dosimetrista);
 	void operator-(cDosimetrista* dosimetrista);

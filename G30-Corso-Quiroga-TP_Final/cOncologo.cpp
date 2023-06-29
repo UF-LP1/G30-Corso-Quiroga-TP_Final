@@ -1,4 +1,4 @@
-#include "cOncologo.h"
+ï»¿#include "cOncologo.h"
 
 cOncologo::cOncologo(string nombre, int ID) {
 	this->nombre = nombre;
@@ -7,7 +7,7 @@ cOncologo::cOncologo(string nombre, int ID) {
 
 cOncologo::~cOncologo() {}
 
-int cOncologo::suministrarDosis() { 
+int cOncologo::suministrarDosis() {
 	eTipoTerapia t;
 
 	if (t == eTipoTerapia::radioterapiaHaz) {
@@ -23,14 +23,14 @@ int cOncologo::suministrarDosis() {
 	int dosis = 0, aux = 0;
 
 	if (t == eTipoTerapia::radioterapiaHaz) { // Si el tipo de terapia es radioterapiaHaz
-		aux = rand() % 2; // Genero un número aleatorio entre 0 y 1
+		aux = rand() % 2; // Genero un nï¿½mero aleatorio entre 0 y 1
 		if (aux == 0)
 			dosis = 1; // Asigno dosis de 1 Gy
 		else
 			dosis = 2; // Asigno dosis de 2 Gy
 	}
 	else if (t == eTipoTerapia::braquiterapia) { // Si el tipo de terapia es braquiterapia
-		aux = rand() % 3; // Genero un número aleatorio entre 0 y 2
+		aux = rand() % 3; // Genero un nï¿½mero aleatorio entre 0 y 2
 		if (aux == 0)
 			dosis = 4; // Asigno dosis de 4 Gy
 		else if (aux == 1)
@@ -39,7 +39,7 @@ int cOncologo::suministrarDosis() {
 			dosis = 8; // Asigno dosis de 8 Gy
 	}
 	else if (t == eTipoTerapia::radioterapiaSistemica) { // Si el tipo de terapia es radioterapiaSistemica
-		aux = rand() % 3; // Genero un número aleatorio entre 0 y 2
+		aux = rand() % 3; // Genero un nï¿½mero aleatorio entre 0 y 2
 		if (aux == 0)
 			dosis = 2; // Asigno dosis de 2 Gy
 		else if (aux == 1)
@@ -64,29 +64,29 @@ int cOncologo::suministrarDosis() {
 			dosis = 6;
 		else
 			dosis = 8;
-		
+
 	}
 	else if (t == 3) {//2 a 4 Gy
 		if (aux == 0)
 			dosis = 2;
 		else
 			dosis = 4;
-		
+
 	}
 	return dosis;
 	*/
 }
-string cOncologo::to_string(){		
-		string result = "Paciente ";
-		result += this->nombre;
-		result += ", con ID: ";
-		return result;
+string cOncologo::to_string() {
+	string result = "Paciente ";
+	result += this->nombre;
+	result += ", con ID: ";
+	return result;
 }
 
 
 /*
 void cOncologo::frecuencia() { /
-	
+
 	int dosisTotal = this->dosimetrista->calcularDosisTotal();
 	int dosis = this->suministrarDosis();
 
@@ -137,4 +137,10 @@ void cOncologo::setID(int ID)
 {
 	this->ID = ID;
 	return;
+}
+
+void cOncologo::darAlta(cPaciente* paciente) {
+	cFicha* ficha = paciente->getficha();
+	if (ficha->getcantTumor() == 0)
+		ficha->getpaciente()->setCurado(true);
 }

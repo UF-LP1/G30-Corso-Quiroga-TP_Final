@@ -1,26 +1,28 @@
 #include "cBraquiterapia.h"
 
 cBraquiterapia::cBraquiterapia(int gy, int cantSesiones) : cTerapia(gy, cantSesiones) {
-	
+	this->gy = gy;
+	this->cantSesiones = cantSesiones;
 }
 
-cBraquiterapia::cBraquiterapia() : cTerapia(20, 5) {
-	
+cBraquiterapia::cBraquiterapia() : cTerapia(gy, cantSesiones) {
+	this->gy = 20;
+	this->cantSesiones = 5;
 }
 cBraquiterapia::~cBraquiterapia() {}
 
 
 
-int cBraquiterapia::AplicarTerapia() {
+int cBraquiterapia::AplicarTerapia(cLista <cTumor>* listaTumor) {
 
-	gy = rand() % 100 + 160;  //Calculo la dosis total que recibe el paciente correspondiente a este tipo de terapia
-
-	float radiacion = gy / cantSesiones;
-	return radiacion;
-	
-	/*cFicha* ficha = paciente->getficha();
-	if (ficha->getacumRadiacion() + radiacion >= 150) {
-		throw new exception("No se puede continuar con la terapia");
+	//Veo las probabilidades de curación de un cancer
+	float _probabilidad = rand() % +1;
+	if (_probabilidad > 0.6) {
+		int i = rand() % +listaTumor->getCA();
+		listaTumor->Eliminar(i);
 	}
-	ficha->aplicarRadiacion(radiacion);*/
+
+	gy = rand() % 6 + 8;
+	this->cantsesion++; //Calculo la dosis total que recibe el paciente correspondiente a este tipo de terapia
+	return gy;
 }

@@ -1,9 +1,4 @@
-#include <iostream>
-#include <string>
-#include <ctime>
-using namespace std;
-
-#include "cPaciente.h"
+ï»¿#include "cPaciente.h"
 
 cPaciente::cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud, time_t fechaNac)
 {
@@ -14,6 +9,7 @@ cPaciente::cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSan
 	this->tipoSangre = tipoSangre;
 	this->salud = salud;
 	this->fechaNac = fechaNac;
+	this->curado = false;
 }
 
 cPaciente::~cPaciente() {}
@@ -60,7 +56,7 @@ void cPaciente::setficha(cFicha* ficha)
 	return;
 }
 
-string cPaciente::to_string(){
+string cPaciente::to_string() {
 	string result = "Paciente ";
 	result += this->nombre;
 	result += ", con DNI: ";
@@ -71,7 +67,7 @@ string cPaciente::to_string(){
 }
 
 ostream& operator<<(ostream& out, cPaciente& paciente)
-{ //accedo al método to_string() de la clase cPaciente para obtener la representación de cadena de texto del objeto paciente.
+{ //accedo al mï¿½todo to_string() de la clase cPaciente para obtener la representaciï¿½n de cadena de texto del objeto paciente.
 	out << paciente.to_string() << endl;
 	return out;
 }

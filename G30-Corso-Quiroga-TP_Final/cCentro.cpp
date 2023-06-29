@@ -1,4 +1,4 @@
-#include "cCentro.h"
+ï»¿#include "cCentro.h"
 
 
 cCentro::cCentro() {
@@ -6,10 +6,10 @@ cCentro::cCentro() {
 	this->listaPaciente = new cLista<cPaciente>(maxPaciente);
 	this->listaOncologo = new cLista<cOncologo>(maxOncologo);
 	this->listaDosimetrista = new cLista<cDosimetrista>(maxDosimetrista);
-	
+
 }
 cCentro::~cCentro() {
-	
+
 	delete listaDosimetrista;
 	delete listaPaciente;
 	delete listaPaciente;
@@ -21,11 +21,11 @@ void cCentro::agregarPaciente(cPaciente* paciente) {
 	try { this->listaPaciente->Insertar(paciente); }
 	catch (exception & e) {
 		cout << e.what() << endl;
-	} 
+	}
 	*/
 }
 
-void cCentro::eliminarPaciente(cPaciente* paciente){ //si encuentro la posicion del paciente en la lista lo elimino
+void cCentro::eliminarPaciente(cPaciente* paciente) { //si encuentro la posicion del paciente en la lista lo elimino
 	int pos = listaPaciente->BuscarAtPos(paciente);
 	if (pos != -1) {
 		cPaciente* eliminarPaciente = listaPaciente->QuitarPos(pos);
@@ -34,14 +34,14 @@ void cCentro::eliminarPaciente(cPaciente* paciente){ //si encuentro la posicion 
 }
 
 void cCentro::agregarOncologo(cOncologo* oncologo) {
-	
+
 	try { this->listaOncologo->Insertar(oncologo); }
-	catch (exception & e) {
+	catch (exception& e) {
 		cout << e.what() << endl;
-	} 
+	}
 }
 
-void cCentro::eliminarOncologo(cOncologo* oncologo){ //si encuentro la posicion del oncologo en la lista lo elimino
+void cCentro::eliminarOncologo(cOncologo* oncologo) { //si encuentro la posicion del oncologo en la lista lo elimino
 	int pos = listaOncologo->BuscarAtPos(oncologo);
 	if (pos != -1) {
 		cOncologo* eliminarOncologo = listaOncologo->QuitarPos(pos);
@@ -76,67 +76,109 @@ cFicha* cCentro::crearFicha(cPaciente* paciente) {
 
 
 cLista <cPaciente>* cCentro::buscarPacienteTyC(cTerapia* terapia, eUbicacion ubicacion) {
-	// Creo una nueva lista para almacenar los pacientes que cumplen con los criterios de búsqueda
+	// Creo una nueva lista para almacenar los pacientes que cumplen con los criterios de bï¿½squeda
 	cLista<cPaciente>* ToR = new cLista<cPaciente>(this->listaPaciente->getCA());
 
 	int i;
 	for (i = 0; i < this->listaPaciente->getCA(); i++) {
-		// Obtengo el paciente en la posición i
+		// Obtengo el paciente en la posiciï¿½n i
 		cPaciente* paciente = this->listaPaciente->Buscar(i);
-
+		cFicha* ficha = paciente->getficha();
 		// Defino los diferentes tipos de terapia
 		eTipoTerapia tipoTerapiaRadioterapiaHaz = eTipoTerapia::radioterapiaHaz;
 		eTipoTerapia tipoTerapiaBraquiterapia = eTipoTerapia::braquiterapia;
 		eTipoTerapia tipoTerapiaRadioterapiaSistemica = eTipoTerapia::radioterapiaSistemica;
 
 		// Verifico si el tipo de terapia del paciente coincide con radioterapiaHaz
-		if (paciente->getficha()->getterapia()->getTipoTerapia(tipoTerapiaRadioterapiaHaz) == terapia->getTipoTerapia(tipoTerapiaRadioterapiaHaz)) {
-			// Si coincide, verifico la ubicación del tumor del paciente
-			if (paciente->getficha()->gettumor()->getubicacion() == ubicacion) {
-				try {
-					// Inserto el paciente en la lista ToR
-					ToR->Insertar(paciente);
+		if (dynamic_cast<cRadioterapiaHaz*>(ficha->getterapia()) != nullptr) {
+			// Si coincide, verifico la ubicaciï¿½n del tumor del paciente
+			bool found = false;
+			int j = 0;
+			while (!found && j < paciente->getficha()->getTumores()->getCA()) {
+				cTumor* tumor = paciente->getficha()->getTumores()->Buscar(j);
+				if (tumor->getubicacion() == ubicacion) {
+					found = true;
+					try {
+						// Inserto el paciente en la lista ToR
+						ToR->Insertar(paciente);
+					}
+					catch (exception& e) { //capturo la excepciï¿½n y la almacento en una variable e
+						cout << e.what() << endl; //devuelvo una cadena de caracteres que describe la excepciï¿½n
+					}
 				}
-				// Si se produce una excepción al intentar insertar el paciente, muestro el mensaje de error
-				catch (exception& e) { //capturo la excepción y la almacento en una variable e
-					cout << e.what() << endl; //devuelvo una cadena de caracteres que describe la excepción
-				}
+				else
+					j++;
+
 			}
+
+
+			// Si se produce una excepciï¿½n al intentar insertar el paciente, muestro el mensaje de error
+
 		}
+
 
 		// Verificar si el tipo de terapia del paciente coincide con braquiterapia
-		if (paciente->getficha()->getterapia()->getTipoTerapia(tipoTerapiaBraquiterapia) == terapia->getTipoTerapia(tipoTerapiaBraquiterapia)) {
-			// Si coincide, verificar la ubicación del tumor del paciente
-			if (paciente->getficha()->gettumor()->getubicacion() == ubicacion) {
-				try {
-					// Insertar el paciente en la lista ToR
-					ToR->Insertar(paciente);
+		if ((dynamic_cast<cRadioterapiaSistemica*>(ficha->getterapia()) != nullptr)) {
+			// Si coincide, verifico la ubicaciï¿½n del tumor del paciente
+			bool found = false;
+			int j = 0;
+			while (!found && j < paciente->getficha()->getTumores()->getCA()) {
+				cTumor* tumor = paciente->getficha()->getTumores()->Buscar(j);
+				if (tumor->getubicacion() == ubicacion) {
+					found = true;
+					try {
+						// Inserto el paciente en la lista ToR
+						ToR->Insertar(paciente);
+					}
+					catch (exception& e) { //capturo la excepciï¿½n y la almacento en una variable e
+						cout << e.what() << endl; //devuelvo una cadena de caracteres que describe la excepciï¿½n
+					}
 				}
-				catch (exception& e) {
-					cout << e.what() << endl;
-				}
+				else
+					j++;
+
 			}
+
+
+			// Si se produce una excepciï¿½n al intentar insertar el paciente, muestro el mensaje de error
+
 		}
 
-		// Verificar si el tipo de terapia del paciente coincide con radioterapiaSistemica
-		if (paciente->getficha()->getterapia()->getTipoTerapia(tipoTerapiaRadioterapiaSistemica) == terapia->getTipoTerapia(tipoTerapiaRadioterapiaSistemica)) {
-			// Si coincide, verificar la ubicación del tumor del paciente
-			if (paciente->getficha()->gettumor()->getubicacion() == ubicacion) {
-				try {
-					// Insertar el paciente en la lista ToR
-					ToR->Insertar(paciente);
+
+		// Verificar si el tipo de terapia del paciente coincide con braquiterapia
+		if ((dynamic_cast<cBraquiterapia*>(ficha->getterapia()) != nullptr)) {
+			// Si coincide, verifico la ubicaciï¿½n del tumor del paciente
+			bool found = false;
+			int j = 0;
+			while (!found && j < paciente->getficha()->getTumores()->getCA()) {
+				cTumor* tumor = paciente->getficha()->getTumores()->Buscar(j);
+				if (tumor->getubicacion() == ubicacion) {
+					found = true;
+					try {
+						// Inserto el paciente en la lista ToR
+						ToR->Insertar(paciente);
+					}
+					catch (exception& e) { //capturo la excepciï¿½n y la almacento en una variable e
+						cout << e.what() << endl; //devuelvo una cadena de caracteres que describe la excepciï¿½n
+					}
 				}
-				catch (exception& e) {
-					cout << e.what() << endl;
-				}
+				else
+					j++;
+
 			}
+
+
+			// Si se produce una excepciï¿½n al intentar insertar el paciente, muestro el mensaje de error
+
 		}
+
+
 	}
 
 	return ToR;
 }
 
-void cCentro::listarPacientes() { //verifico si el paciente tiene una ficha, si es así, puedo obtener el tumor y su ubicacion y listarlo con el resto de datos
+void cCentro::listarPacientes() { //verifico si el paciente tiene una ficha, si es asï¿½, puedo obtener el tumor y su ubicacion y listarlo con el resto de datos
 	int i;
 	for (i = 0; i < listaPaciente->getCA(); i++) {
 		cPaciente* paciente = listaPaciente->Buscar(i);
@@ -149,8 +191,13 @@ void cCentro::listarPacientes() { //verifico si el paciente tiene una ficha, si 
 		cout << "ID Oncologo: " << oncologo->getID() << endl;
 		cout << endl;
 		if (paciente->getficha() != NULL) { //si no tiene una ficha entonces no imprime estos ultimos datos
-			cTumor* tumor = paciente->getficha()->gettumor();
-			cout << "Tumor - Tamanio: " << tumor->gettamanio() << ", Ubicacion: " << tumor->getubicacion() << endl;
+			cLista<cTumor>* tumores = paciente->getficha()->getTumores();
+			int i;
+			for (i = 0; i < tumores->getCA(); i++) {
+				cTumor* tumor = tumores->Buscar(i);
+				cout << "Tumor - Tamanio: " << tumor->gettamanio() << ", Ubicacion: " << tumor->getubicacion() << endl;
+
+			}
 		}
 		cout << endl;
 	}
@@ -171,7 +218,7 @@ void cCentro::listarOncologo() {
 /*
 void cCentro::operator+(cDosimetrista* dosimetrista){
 	if ((*listaDosimetrista) == dosimetrista) {
-		throw runtime_error("El dosimetrista ya existe en la lista."); //uso el runtime_error para indicar errores en tiempo de ejecución
+		throw runtime_error("El dosimetrista ya existe en la lista."); //uso el runtime_error para indicar errores en tiempo de ejecuciï¿½n
 	}
 	listaDosimetrista->Insertar(dosimetrista);
 }
@@ -206,41 +253,59 @@ void cCentro::eliminarDosimetrista(cDosimetrista* dosimetrista) {
 
 void cCentro::tratarPaciente(cPaciente* paciente) {
 	cFicha* ficha = paciente->getficha();
-	if (ficha->getsesion() < ficha->getterapia()->getcantsesion()) {
+	if (ficha->getcantTumor() > 0 && !paciente->getCurado()) {
 
-		try {
-			int radiacion;
-			radiacion = ficha->getterapia()->AplicarTerapia();
-
-
-			if (dynamic_cast<cRadioterapiaHaz*>(ficha->getterapia()) != nullptr) {
-				if (ficha->getacumRadiacion() + radiacion > 10)
-					throw new exception("No se puede continuar con la terapia");
+		int radiacion;
+		radiacion = ficha->getterapia()->AplicarTerapia(ficha->getTumores());
 
 
-			}
-
-
-			if (dynamic_cast<cBraquiterapia*>(ficha->getterapia()) != nullptr) {
-				if (ficha->getacumRadiacion() + radiacion > 160)
-					throw new exception("No se puede continuar con la terapia");
-
-
-			}
-
-			if (dynamic_cast<cRadioterapiaSistemica*>(ficha->getterapia()) != nullptr) {
-				if (ficha->getacumRadiacion() + radiacion > 40)
-					throw new exception("No se puede continuar con la terapia");
-
-
-			}
-			ficha->aplicarRadiacion(radiacion);
-			ficha->setcantsesion(ficha->getsesion());
+		if (dynamic_cast<cRadioterapiaHaz*>(ficha->getterapia()) != nullptr) {
+			if (ficha->getacumRadiacion() + radiacion > 10)
+				throw new exception("No se puede continuar con la terapia");
 
 
 		}
-		catch (exception& e) {
-			cout << e.what() << endl;
+
+
+		if (dynamic_cast<cBraquiterapia*>(ficha->getterapia()) != nullptr) {
+			if (ficha->getacumRadiacion() + radiacion > 160)
+				throw new exception("No se puede continuar con la terapia");
+
+
 		}
+
+		if (dynamic_cast<cRadioterapiaSistemica*>(ficha->getterapia()) != nullptr) {
+			if (ficha->getacumRadiacion() + radiacion > 40)
+				throw new exception("No se puede continuar con la terapia");
+
+
+		}
+		ficha->aplicarRadiacion(radiacion);
+		ficha->setcantsesion(ficha->getsesion());
+
+
+
 	}
+	//Chequeo si le tengo que dar el alta
+	this->darAlta(ficha);
+}
+
+void cCentro::darAlta(cFicha* paciente) {
+	//Se asume que el primer oncologo evalua al paciente
+	cOncologo* oncologo = this->listaOncologo->Buscar(0);
+
+
+
+}
+
+cLista <cPaciente>* cCentro::buscarPacienteLimite() {
+	cLista<cPaciente>* _toR = new cLista<cPaciente>(this->listaPaciente->getCA());
+	int i;
+	for (i = 0; i < this->listaPaciente->getCA(); i++) {
+		cPaciente* _paciente = this->listaPaciente->Buscar(i);
+		//Si encuentra algun tumor con radicion limite me lo inserta-...
+		if (_paciente->getficha()->encontrarRadicionLimite())
+			_toR->Insertar(_paciente);
+	}
+	return _toR;
 }

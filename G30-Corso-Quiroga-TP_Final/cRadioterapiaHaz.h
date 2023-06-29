@@ -9,15 +9,15 @@
 
 using namespace std;
 
-
-class cRadioterapiaHaz: public cTerapia
+class cRadioterapiaHaz : public cTerapia
 {
 
 public:
 	cRadioterapiaHaz(int gy, int cantSesiones);
 	cRadioterapiaHaz();
 	~cRadioterapiaHaz();
-	
-	int AplicarTerapia();
+
+	int AplicarTerapia(cLista <cTumor>* listaTumor);
+	int getTipoTerapia();
 };
 #endif

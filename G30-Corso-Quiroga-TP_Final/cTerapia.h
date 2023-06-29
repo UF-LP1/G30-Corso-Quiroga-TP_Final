@@ -1,39 +1,29 @@
-#ifndef _CTERAPIA_H
-#define _CTERAPIA_H
-
-
-
 #include <iostream>
 #include <string>
-#include "cPaciente.h"
-#include "eTipoTerapia.h"
-
-class cPaciente;
-
+#include "cTumor.h"
+#include "cLista.h"
 using namespace std;
 
-class cPaciente;
-class cTerapia {
+#ifndef _CCTERAPIA_H
+#define _CCTERAPIA_H
 
+class cTumor;
+
+class cTerapia {
 protected:
 	int gy;
-	int cantSesiones;
-	cPaciente* paciente;
-	eTipoTerapia terapia;
 	int cantsesion;
+
+
 public:
 	cTerapia(int gy, int cantSesiones);
-	
+
 	~cTerapia();
-
-	eTipoTerapia getTipoTerapia(eTipoTerapia tipoTerapia);
-	virtual int AplicarTerapia() = 0;
-	// = 0; estoy indicando que cTerapia no tiene una implementacion para este metodo. Todas sus hijas deben implementarlo particularmente
-
-	int getcantsesion() { return this->cantsesion; }
+	virtual int getTipoTerapia() = 0;
+	//Ahora aplicar terapia retorna la radioación
+	virtual int AplicarTerapia(cLista <cTumor>* listaTumor) = 0;
 	void setcantsesion(int cantsesiones);
 
-	cPaciente* getpaciente() { return this->paciente; }
 };
 
-#endif 
+#endif

@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _CTUMOR_H
 #define _CTUMOR_H
 #include <iostream>
@@ -16,7 +15,7 @@ private:
 	int acumRadiacion;
 
 public:
-	cTumor(eTamanio tamanio,eUbicacion ubicacion,int acumRadiacion);
+	cTumor(eTamanio tamanio, eUbicacion ubicacion, int acumRadiacion);
 	cTumor();
 	~cTumor();
 

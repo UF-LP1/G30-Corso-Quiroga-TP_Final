@@ -5,11 +5,11 @@ cDosimetrista::cDosimetrista() {
 }
 cDosimetrista::~cDosimetrista() {}
 /*
-int cDosimetrista::calcularDosisTotal() { 
+int cDosimetrista::calcularDosisTotal() {
 	int tipo = 0, dosisTotal = 0;
 	tipo = this->terapia->getTipoTerapia();
-	
-	if (tipo == 1) 
+
+	if (tipo == 1)
 		dosisTotal = rand() % 1 + 10; // 1-10 Gy
 	else if(tipo == 2)
 		dosisTotal = rand() % 100 + 160; // 100-160 Gy

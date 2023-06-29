@@ -1,11 +1,8 @@
 #include "cRadioterapiaHaz.h"
 
-cRadioterapiaHaz::cRadioterapiaHaz(int gy, int cantSesiones) : cTerapia(gy, cantSesiones) {
-	
-}
-
 cRadioterapiaHaz::cRadioterapiaHaz() : cTerapia(20, 5) {
-	
+	//this->gy = 20;
+	//this->cantSesiones = 5;
 }
 
 
@@ -13,16 +10,16 @@ cRadioterapiaHaz::cRadioterapiaHaz() : cTerapia(20, 5) {
 cRadioterapiaHaz::~cRadioterapiaHaz() {}
 
 
-int cRadioterapiaHaz::AplicarTerapia() {
-	
-	
-	gy = rand() % 1 + 10; //Calculo la dosis total que recibe el paciente correspondiente a este tipo de terapia
-	
-	float radiacion = gy / cantSesiones;
-	return radiacion;
-	/*cFicha* ficha = paciente->getficha();
-	if (ficha->getacumRadiacion() + radiacion >= 100) {
-		throw new exception("No se puede continuar con la terapia");
+int cRadioterapiaHaz::AplicarTerapia(cLista <cTumor>* listaTumor) {
+
+	//Veo las probabilidades de curación de un cancer
+	float _probabilidad = rand() % + 1;
+	if (_probabilidad > 0.5) {
+		int i = rand() % +listaTumor->getCA();
+		listaTumor->Eliminar(i);
 	}
-	ficha->aplicarRadiacion(radiacion);*/
+
+	gy = rand() % 1 + 2;
+	this->cantsesion++; //Calculo la dosis total que recibe el paciente correspondiente a este tipo de terapia
+	return gy;
 }

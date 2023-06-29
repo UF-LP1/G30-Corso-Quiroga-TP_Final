@@ -1,16 +1,11 @@
-#include <iostream>
-#include <string>
-
 #include "cTumor.h"
-using namespace std;
-
-cTumor::cTumor(eTamanio tamanio, eUbicacion ubicacion, int acumRadiacion){
+cTumor::cTumor(eTamanio tamanio, eUbicacion ubicacion, int acumRadiacion) {
 	this->tamanio = tamanio;
 	this->ubicacion = ubicacion;
 	this->acumRadiacion = acumRadiacion;
 }
 cTumor::cTumor() {
-	this->tamanio = eTamanio:: grande;
+	this->tamanio = eTamanio::grande;
 	this->ubicacion = eUbicacion::ojo;
 	this->acumRadiacion = 0;
 }

@@ -1,18 +1,18 @@
 #ifndef _CPACIENTE_H
 #define _CPACIENTE_H
 
-
+class cFicha;
 
 #include <iostream>
 #include <string>
 #include "eTipoSangre.h"
 #include "cLista.h"
 #include "cFicha.h"
-class cFicha;
+
 using namespace std;
 
 
-class cPaciente{
+class cPaciente {
 private:
 	string nombre;
 	int DNI;
@@ -22,10 +22,11 @@ private:
 	eTipoSangre tipoSangre;
 	float salud;
 	cFicha* ficha;
+	bool curado;
 public:
 	cPaciente(string nombre, int DNI, string sexo, int telefono, eTipoSangre tipoSangre, float salud, time_t fechaNac);
 	~cPaciente();
-	
+
 	string getnombre() { return this->nombre; }
 	void setnombre(string nombre);
 
@@ -49,7 +50,8 @@ public:
 
 	string to_string();
 	friend ostream& operator<<(ostream& out, cPaciente& paciente); //tengo acceso directo a los miembros privados y protegidos de la clase cPaciente
+	void setCurado(bool curado) { this->curado = curado; }
+	bool getCurado() { return this->curado; }
 
-	
 };
 #endif

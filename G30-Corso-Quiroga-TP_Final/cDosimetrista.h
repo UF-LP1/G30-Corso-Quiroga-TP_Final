@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _CDOSIMETRISTA_H
 #define _CDOSIMETRISTA_H
 #include <iostream>
@@ -26,6 +25,6 @@ public:
 	cDosimetrista();
 	~cDosimetrista();
 	//int calcularDosisTotal(); 
-	cTerapia* determinarTipoTerapia(cLista<cTumor>* tumores); 
+	cTerapia* determinarTipoTerapia(cLista<cTumor>* tumores);
 };
 #endif

@@ -1,24 +1,25 @@
 #include "cRadioterapiaSistemica.h"
 
 cRadioterapiaSistemica::cRadioterapiaSistemica(int gy, int cantSesiones) : cTerapia(gy, cantSesiones) {
-	
+
 }
-cRadioterapiaSistemica::cRadioterapiaSistemica() : cTerapia(20, 5) {
+cRadioterapiaSistemica::cRadioterapiaSistemica() : cTerapia(20, 8) {
 
 }
 cRadioterapiaSistemica::~cRadioterapiaSistemica() {}
 
 
 
-int cRadioterapiaSistemica::AplicarTerapia() {
+int cRadioterapiaSistemica::AplicarTerapia(cLista <cTumor>* listaTumor) {
 
-	gy = rand() % 20 + 40; //Calculo la dosis total que recibe el paciente correspondiente a este tipo de terapia
-
-	float radiacion = gy / cantSesiones;
-	return radiacion;
-	/*cFicha* ficha = paciente->getficha();
-	if (ficha->getacumRadiacion() + radiacion >= 100) {
-		throw new exception("No se puede continuar con la terapia");
+	//Veo las probabilidades de curación de un cancer
+	float _probabilidad = rand() % +1;
+	if (_probabilidad > 0.5) {
+		int i = rand() % +listaTumor->getCA();
+		listaTumor->Eliminar(i);
 	}
-	ficha->aplicarRadiacion(radiacion);*/
+
+	gy = rand() % 2 + 4;
+	this->cantsesion++; //Calculo la dosis total que recibe el paciente correspondiente a este tipo de terapia
+	return gy;
 }
