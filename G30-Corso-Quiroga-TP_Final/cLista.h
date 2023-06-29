@@ -29,11 +29,11 @@ public:
 	int BuscarAtPos(T1* pos);
 
 	T1* QuitarPos(unsigned int pos);
-	void EliminarenPos(unsigned int pos);
+	void EliminarenPos(T1* P);
 	void Switch(unsigned int pos1, unsigned int pos2);
 	int getCA() const { return ca; };
 	void operator+(T1* p) { Insertar(p); };
-	void operator-(T1* p) { Eliminar(p); };
+	void operator-(T1* p) { EliminarenPos(p); };
 	friend ostream& operator<<(ostream& out, cLista<T1>& Lista);
 
 	int operator==(T1* elemento) const {
@@ -154,8 +154,9 @@ inline void cLista<T1>::Eliminar(int pos)
 
 
 template <class T1>
-inline void cLista<T1>::EliminarenPos(unsigned int pos)
+inline void cLista<T1>::EliminarenPos(T1* P)
 {
+	int pos = this->t;
 	if (pos >= ca)return;
 	delete lista[pos];
 	ca--;

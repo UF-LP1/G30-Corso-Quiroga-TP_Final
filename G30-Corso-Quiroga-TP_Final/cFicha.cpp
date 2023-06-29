@@ -84,7 +84,10 @@ void cFicha::aplicarRadiacion(float radiacion) {
 
 int cFicha::getcantTumor() {
 
-	return this->listaTumor->getCA();
+	if (this->listaTumor != NULL)
+		return this->listaTumor->getCA();
+	else
+		return 0;
 }
 
 void cFicha::agregarTumor(cTumor* tumor) {

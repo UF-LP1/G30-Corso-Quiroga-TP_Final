@@ -50,7 +50,7 @@ void cCentro::eliminarOncologo(cOncologo* oncologo) { //si encuentro la posicion
 }
 
 cFicha* cCentro::crearFicha(cPaciente* paciente) {
-
+	
 	int pos = listaPaciente->BuscarAtPos(paciente); //chequeo que el paciente este
 	if (pos == -1) {
 		throw runtime_error("El paciente no esta registrado en el centro.");
@@ -67,9 +67,13 @@ cFicha* cCentro::crearFicha(cPaciente* paciente) {
 		}
 
 		cFicha* ficha = new cFicha(terapia, paciente, oncologo, 12 / 12 / 20);
-
+		ficha->setFichaTumores(tumores);
+		paciente->setficha(ficha);
+		
 		return ficha;
 	}
+	
+	//cout << "pos es : " << pos << endl;
 
 }
 
@@ -232,23 +236,14 @@ void cCentro::operator-(cDosimetrista* dosimetrista) {
 }
 */
 void cCentro::agregarDosimetrista(cDosimetrista* dosimetrista) {
+	int i = listaDosimetrista->getCA();
 	*listaDosimetrista + (dosimetrista);
-	/*
-	try { this->listaDosimetrista->Insertar(dosimetrista); }
-	catch (exception& e) {
-		cout << e.what() << endl;
-	}
-	*/
+	
 }
+
 void cCentro::eliminarDosimetrista(cDosimetrista* dosimetrista) {
 	*listaDosimetrista - (dosimetrista);
-	/*
-	int pos = listaDosimetrista->BuscarAtPos(dosimetrista);
-	if (pos != -1) {
-		cDosimetrista* eliminarDosimetrista = listaDosimetrista->QuitarPos(pos);
-		delete eliminarDosimetrista;
-	}*/
-
+	
 }
 
 void cCentro::tratarPaciente(cPaciente* paciente) {

@@ -13,7 +13,7 @@ class cRadioterapiaHaz : public cTerapia
 {
 
 public:
-	cRadioterapiaHaz(int gy, int cantSesiones);
+	
 	cRadioterapiaHaz();
 	~cRadioterapiaHaz();
 

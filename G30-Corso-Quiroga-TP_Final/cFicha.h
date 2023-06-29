@@ -56,6 +56,9 @@ public:
 	cLista <cTumor>* getTumores() { return this->listaTumor; }
 	void settumor(cTumor* tumor);
 
+
+	void setFichaTumores(cLista<cTumor>* tumores) { this->listaTumor = tumores; }
+
 	void aplicarRadiacion(float radiacion);
 
 	int getcantTumor();

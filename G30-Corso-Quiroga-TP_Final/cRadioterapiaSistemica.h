@@ -13,7 +13,7 @@ using namespace std;
 class cRadioterapiaSistemica : public cTerapia
 {
 public:
-	cRadioterapiaSistemica(int gy, int cantSesiones);
+	
 	cRadioterapiaSistemica();
 	~cRadioterapiaSistemica();
 

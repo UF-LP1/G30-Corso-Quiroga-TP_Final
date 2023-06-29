@@ -12,7 +12,7 @@ using namespace std;
 
 class cBraquiterapia : public cTerapia {
 public:
-	cBraquiterapia(int gy, int cantSesiones);
+	
 	cBraquiterapia();
 	~cBraquiterapia();
 

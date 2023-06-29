@@ -5,19 +5,22 @@ cOncologo::cOncologo(string nombre, int ID) {
 	this->ID = ID;
 }
 
+
+cLista<cTumor>* cOncologo::tumores = new cLista<cTumor >(4);
+
 cOncologo::~cOncologo() {}
 
 int cOncologo::suministrarDosis() {
 	eTipoTerapia t;
-
-	if (t == eTipoTerapia::radioterapiaHaz) {
-		t = terapia->getTipoTerapia(eTipoTerapia::radioterapiaHaz);
+	int i = this->terapia->getTipoTerapia();
+	if (i == 1) {
+		t = eTipoTerapia::radioterapiaHaz;
 	}
-	else if (t == eTipoTerapia::braquiterapia) {
-		t = terapia->getTipoTerapia(eTipoTerapia::braquiterapia);
+	else if (i == 2) {
+		t = eTipoTerapia::braquiterapia;
 	}
-	else if (t == eTipoTerapia::radioterapiaSistemica) {
-		t = terapia->getTipoTerapia(eTipoTerapia::radioterapiaSistemica);
+	else if (i == 3) {
+		t = eTipoTerapia::braquiterapia;
 	} // Obtengo el tipo de terapia
 
 	int dosis = 0, aux = 0;
@@ -122,8 +125,9 @@ cLista<cTumor>* cOncologo::encontrarTumores(cPaciente* paciente) {
 		}
 
 	}
-	delete listaClonada;
+	//delete listaClonada;
 	return ToR;
+	
 
 }
 

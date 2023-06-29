@@ -1,14 +1,13 @@
 #include "cRadioterapiaSistemica.h"
 
-cRadioterapiaSistemica::cRadioterapiaSistemica(int gy, int cantSesiones) : cTerapia(gy, cantSesiones) {
 
-}
+
 cRadioterapiaSistemica::cRadioterapiaSistemica() : cTerapia(20, 8) {
 
 }
 cRadioterapiaSistemica::~cRadioterapiaSistemica() {}
 
-
+int cRadioterapiaSistemica::getTipoTerapia() { return 3; }
 
 int cRadioterapiaSistemica::AplicarTerapia(cLista <cTumor>* listaTumor) {
 
