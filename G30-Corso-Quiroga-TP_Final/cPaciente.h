@@ -1,14 +1,14 @@
 #ifndef _CPACIENTE_H
 #define _CPACIENTE_H
 
-class cFicha;
+
 
 #include <iostream>
 #include <string>
 #include "eTipoSangre.h"
 #include "cLista.h"
 #include "cFicha.h"
-
+class cFicha;
 using namespace std;
 
 

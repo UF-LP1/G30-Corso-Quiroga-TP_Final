@@ -1,12 +1,14 @@
 #ifndef _CTERAPIA_H
 #define _CTERAPIA_H
 
-class cPaciente;
+
 
 #include <iostream>
 #include <string>
 #include "cPaciente.h"
 #include "eTipoTerapia.h"
+
+class cPaciente;
 
 using namespace std;
 
